@@ -1,0 +1,14 @@
+{
+  "name": "Pallston",
+  "short_name": "Pallston",
+  "description": "Confidence Begins with Clarity. Modern advisory, disciplined execution, and lasting transformation.",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#0A2342",
+  "theme_color": "#0A2342",
+  "icons": [
+    { "src": "/assets/icons/favicon-48.png", "sizes": "48x48", "type": "image/png" },
+    { "src": "/assets/icons/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "/assets/icons/icon-512.png", "sizes": "512x512", "type": "image/png" }
+  ]
+}

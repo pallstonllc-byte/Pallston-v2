@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Regulatory complexity is not the real bottleneck | Pallston Perspectives</title>
+<meta name="description" content="Why the slowest part of healthcare modernization is rarely the regulation itself.">
+<link rel="canonical" href="https://www.pallston.com/article-health-regulatory-bottleneck.html">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Regulatory complexity is not the real bottleneck | Pallston">
+<meta property="og:description" content="Why the slowest part of healthcare modernization is rarely the regulation itself.">
+<meta property="og:url" content="https://www.pallston.com/article-health-regulatory-bottleneck.html">
+<meta property="og:image" content="https://www.pallston.com/assets/og-image.png">
+<meta property="og:site_name" content="Pallston">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Regulatory complexity is not the real bottleneck | Pallston">
+<meta name="twitter:description" content="Why the slowest part of healthcare modernization is rarely the regulation itself.">
+<meta name="twitter:image" content="https://www.pallston.com/assets/og-image.png">
+
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="alternate icon" href="/favicon.ico">
+<link rel="apple-touch-icon" href="/assets/icons/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<meta name="theme-color" content="#0A2342">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700;800&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/main.css">
+
+<script>
+  (function(){
+    try {
+      var t = localStorage.getItem('pallston-theme');
+      if (!t) {
+        var prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        var hour = new Date().getHours();
+        var isNight = (hour >= 19 || hour < 7);
+        t = (prefersDark || isNight) ? 'dark' : 'light';
+      }
+      document.documentElement.setAttribute('data-theme', t);
+      // If arriving via a "Home" nav link, suppress the arrival overlay before paint.
+      if (new URLSearchParams(location.search).has('home')) {
+        document.documentElement.classList.add('skip-arrival');
+      }
+    } catch(e) {}
+  })();
+</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+  <header class="site-header">
+    <div class="nav__bg"></div>
+    <div class="container nav">
+      <a class="brand" href="index.html?arrival=1" data-arrival-link aria-label="Pallston brand entrance">
+        <svg class="logo-dark" xmlns="http://www.w3.org/2000/svg" viewBox="-8 -8 799 220" width="799" height="220">
+  <path d="M0,14 L77,14 A49,49 0 0 1 77,112 L56,112" fill="none" stroke="#0A2342" stroke-width="28" stroke-linecap="butt" stroke-linejoin="miter"></path>
+    <rect x="0" y="56" width="28" height="84" fill="#0A2342"></rect>
+    <rect x="0" y="168" width="28" height="28" fill="#0FA18E"></rect>
+  <g transform="translate(185.20,148.00) scale(0.7385)"><path d="M122.56-102.20Q122.56-90.33 116.94-79.94Q111.32-69.55 99.34-63.19Q87.36-56.83 69.12-56.83L69.12-56.83L44.32-56.83L44.32 0L14.63 0L14.63-148L69.12-148Q86.30-148 98.38-142.06Q110.47-136.13 116.51-125.74Q122.56-115.35 122.56-102.20L122.56-102.20ZM67.85-80.79Q80.15-80.79 86.09-86.40Q92.02-92.02 92.02-102.20L92.02-102.20Q92.02-123.83 67.85-123.83L67.85-123.83L44.32-123.83L44.32-80.79L67.85-80.79ZM135.52-55.80Q135.52-72.60 142.22-85.60Q148.92-98.60 160.42-105.60Q171.92-112.60 186.12-112.60L186.12-112.60Q198.52-112.60 207.82-107.60Q217.12-102.60 222.72-95L222.72-95L222.72-110.80L250.92-110.80L250.92 0L222.72 0L222.72-16.20Q217.32-8.40 207.82-3.30Q198.32 1.80 185.92 1.80L185.92 1.80Q171.92 1.80 160.42-5.40Q148.92-12.60 142.22-25.70Q135.52-38.80 135.52-55.80L135.52-55.80ZM222.72-55.40Q222.72-65.60 218.72-72.90Q214.72-80.20 207.92-84.10Q201.12-88 193.32-88L193.32-88Q185.52-88 178.92-84.20Q172.32-80.40 168.22-73.10Q164.12-65.80 164.12-55.80L164.12-55.80Q164.12-45.80 168.22-38.30Q172.32-30.80 179.02-26.80Q185.72-22.80 193.32-22.80L193.32-22.80Q201.12-22.80 207.92-26.70Q214.72-30.60 218.72-37.90Q222.72-45.20 222.72-55.40L222.72-55.40ZM278.32-148L306.32-148L306.32 0L278.32 0L278.32-148ZM333.92-148L361.92-148L361.92 0L333.92 0L333.92-148ZM431.92 1.80Q418.32 1.80 407.52-3.10Q396.72-8 390.42-16.40Q384.12-24.80 383.52-35L383.52-35L411.72-35Q412.52-28.60 418.02-24.40Q423.52-20.20 431.72-20.20L431.72-20.20Q439.72-20.20 444.22-23.40Q448.72-26.60 448.72-31.60L448.72-31.60Q448.72-37 443.22-39.70Q437.72-42.40 425.72-45.60L425.72-45.60Q413.32-48.60 405.42-51.80Q397.52-55 391.82-61.60Q386.12-68.20 386.12-79.40L386.12-79.40Q386.12-88.60 391.42-96.20Q396.72-103.80 406.62-108.20Q416.52-112.60 429.92-112.60L429.92-112.60Q449.72-112.60 461.52-102.70Q473.32-92.80 474.52-76L474.52-76L447.72-76Q447.12-82.60 442.22-86.50Q437.32-90.40 429.12-90.40L429.12-90.40Q421.52-90.40 417.42-87.60Q413.32-84.80 413.32-79.80L413.32-79.80Q413.32-74.20 418.92-71.30Q424.52-68.40 436.32-65.40L436.32-65.40Q448.32-62.40 456.12-59.20Q463.92-56 469.62-49.30Q475.32-42.60 475.52-31.60L475.52-31.60Q475.52-22 470.22-14.40Q464.92-6.80 455.02-2.50Q445.12 1.80 431.92 1.80L431.92 1.80ZM555.92-87.80L531.12-87.80L531.12-34.20Q531.12-28.60 533.82-26.10Q536.52-23.60 542.92-23.60L542.92-23.60L555.92-23.60L555.92 0L538.32 0Q502.92 0 502.92-34.40L502.92-34.40L502.92-87.80L489.72-87.80L489.72-110.80L502.92-110.80L502.92-138.20L531.12-138.20L531.12-110.80L555.92-110.80L555.92-87.80ZM625.32 1.80Q609.32 1.80 596.52-5.30Q583.72-12.40 576.42-25.40Q569.12-38.40 569.12-55.40L569.12-55.40Q569.12-72.40 576.62-85.40Q584.12-98.40 597.12-105.50Q610.12-112.60 626.12-112.60L626.12-112.60Q642.12-112.60 655.12-105.50Q668.12-98.40 675.62-85.40Q683.12-72.40 683.12-55.40L683.12-55.40Q683.12-38.40 675.42-25.40Q667.72-12.40 654.62-5.30Q641.52 1.80 625.32 1.80L625.32 1.80ZM625.32-22.60Q632.92-22.60 639.62-26.30Q646.32-30 650.32-37.40Q654.32-44.80 654.32-55.40L654.32-55.40Q654.32-71.20 646.02-79.70Q637.72-88.20 625.72-88.20L625.72-88.20Q613.72-88.20 605.62-79.70Q597.52-71.20 597.52-55.40L597.52-55.40Q597.52-39.60 605.42-31.10Q613.32-22.60 625.32-22.60L625.32-22.60ZM765.12-112.40Q784.92-112.40 797.12-99.90Q809.32-87.40 809.32-65L809.32-65L809.32 0L781.32 0L781.32-61.20Q781.32-74.40 774.72-81.50Q768.12-88.60 756.72-88.60L756.72-88.60Q745.12-88.60 738.42-81.50Q731.72-74.40 731.72-61.20L731.72-61.20L731.72 0L703.72 0L703.72-110.80L731.72-110.80L731.72-97Q737.32-104.20 746.02-108.30Q754.72-112.40 765.12-112.40L765.12-112.40Z" fill="#0A2342"></path></g>
+</svg>
+        <svg class="logo-light" xmlns="http://www.w3.org/2000/svg" viewBox="-8 -8 799 220" width="799" height="220">
+  <path d="M0,14 L77,14 A49,49 0 0 1 77,112 L56,112" fill="none" stroke="#FFFFFF" stroke-width="28" stroke-linecap="butt" stroke-linejoin="miter"></path>
+    <rect x="0" y="56" width="28" height="84" fill="#FFFFFF"></rect>
+    <rect x="0" y="168" width="28" height="28" fill="#0FA18E"></rect>
+  <g transform="translate(185.20,148.00) scale(0.7385)"><path d="M122.56-102.20Q122.56-90.33 116.94-79.94Q111.32-69.55 99.34-63.19Q87.36-56.83 69.12-56.83L69.12-56.83L44.32-56.83L44.32 0L14.63 0L14.63-148L69.12-148Q86.30-148 98.38-142.06Q110.47-136.13 116.51-125.74Q122.56-115.35 122.56-102.20L122.56-102.20ZM67.85-80.79Q80.15-80.79 86.09-86.40Q92.02-92.02 92.02-102.20L92.02-102.20Q92.02-123.83 67.85-123.83L67.85-123.83L44.32-123.83L44.32-80.79L67.85-80.79ZM135.52-55.80Q135.52-72.60 142.22-85.60Q148.92-98.60 160.42-105.60Q171.92-112.60 186.12-112.60L186.12-112.60Q198.52-112.60 207.82-107.60Q217.12-102.60 222.72-95L222.72-95L222.72-110.80L250.92-110.80L250.92 0L222.72 0L222.72-16.20Q217.32-8.40 207.82-3.30Q198.32 1.80 185.92 1.80L185.92 1.80Q171.92 1.80 160.42-5.40Q148.92-12.60 142.22-25.70Q135.52-38.80 135.52-55.80L135.52-55.80ZM222.72-55.40Q222.72-65.60 218.72-72.90Q214.72-80.20 207.92-84.10Q201.12-88 193.32-88L193.32-88Q185.52-88 178.92-84.20Q172.32-80.40 168.22-73.10Q164.12-65.80 164.12-55.80L164.12-55.80Q164.12-45.80 168.22-38.30Q172.32-30.80 179.02-26.80Q185.72-22.80 193.32-22.80L193.32-22.80Q201.12-22.80 207.92-26.70Q214.72-30.60 218.72-37.90Q222.72-45.20 222.72-55.40L222.72-55.40ZM278.32-148L306.32-148L306.32 0L278.32 0L278.32-148ZM333.92-148L361.92-148L361.92 0L333.92 0L333.92-148ZM431.92 1.80Q418.32 1.80 407.52-3.10Q396.72-8 390.42-16.40Q384.12-24.80 383.52-35L383.52-35L411.72-35Q412.52-28.60 418.02-24.40Q423.52-20.20 431.72-20.20L431.72-20.20Q439.72-20.20 444.22-23.40Q448.72-26.60 448.72-31.60L448.72-31.60Q448.72-37 443.22-39.70Q437.72-42.40 425.72-45.60L425.72-45.60Q413.32-48.60 405.42-51.80Q397.52-55 391.82-61.60Q386.12-68.20 386.12-79.40L386.12-79.40Q386.12-88.60 391.42-96.20Q396.72-103.80 406.62-108.20Q416.52-112.60 429.92-112.60L429.92-112.60Q449.72-112.60 461.52-102.70Q473.32-92.80 474.52-76L474.52-76L447.72-76Q447.12-82.60 442.22-86.50Q437.32-90.40 429.12-90.40L429.12-90.40Q421.52-90.40 417.42-87.60Q413.32-84.80 413.32-79.80L413.32-79.80Q413.32-74.20 418.92-71.30Q424.52-68.40 436.32-65.40L436.32-65.40Q448.32-62.40 456.12-59.20Q463.92-56 469.62-49.30Q475.32-42.60 475.52-31.60L475.52-31.60Q475.52-22 470.22-14.40Q464.92-6.80 455.02-2.50Q445.12 1.80 431.92 1.80L431.92 1.80ZM555.92-87.80L531.12-87.80L531.12-34.20Q531.12-28.60 533.82-26.10Q536.52-23.60 542.92-23.60L542.92-23.60L555.92-23.60L555.92 0L538.32 0Q502.92 0 502.92-34.40L502.92-34.40L502.92-87.80L489.72-87.80L489.72-110.80L502.92-110.80L502.92-138.20L531.12-138.20L531.12-110.80L555.92-110.80L555.92-87.80ZM625.32 1.80Q609.32 1.80 596.52-5.30Q583.72-12.40 576.42-25.40Q569.12-38.40 569.12-55.40L569.12-55.40Q569.12-72.40 576.62-85.40Q584.12-98.40 597.12-105.50Q610.12-112.60 626.12-112.60L626.12-112.60Q642.12-112.60 655.12-105.50Q668.12-98.40 675.62-85.40Q683.12-72.40 683.12-55.40L683.12-55.40Q683.12-38.40 675.42-25.40Q667.72-12.40 654.62-5.30Q641.52 1.80 625.32 1.80L625.32 1.80ZM625.32-22.60Q632.92-22.60 639.62-26.30Q646.32-30 650.32-37.40Q654.32-44.80 654.32-55.40L654.32-55.40Q654.32-71.20 646.02-79.70Q637.72-88.20 625.72-88.20L625.72-88.20Q613.72-88.20 605.62-79.70Q597.52-71.20 597.52-55.40L597.52-55.40Q597.52-39.60 605.42-31.10Q613.32-22.60 625.32-22.60L625.32-22.60ZM765.12-112.40Q784.92-112.40 797.12-99.90Q809.32-87.40 809.32-65L809.32-65L809.32 0L781.32 0L781.32-61.20Q781.32-74.40 774.72-81.50Q768.12-88.60 756.72-88.60L756.72-88.60Q745.12-88.60 738.42-81.50Q731.72-74.40 731.72-61.20L731.72-61.20L731.72 0L703.72 0L703.72-110.80L731.72-110.80L731.72-97Q737.32-104.20 746.02-108.30Q754.72-112.40 765.12-112.40L765.12-112.40Z" fill="#FFFFFF"></path></g>
+</svg>
+      </a>
+      <nav class="nav__links" aria-label="Primary">
+          <a href="index.html?home=1" data-home-link>Home</a>
+          <a href="capabilities.html">Capabilities</a>
+          <a href="industries.html">Industries</a>
+          <a href="perspectives.html">Perspectives</a>
+      </nav>
+      <div class="nav__actions">
+        <button class="theme-toggle" data-theme-toggle type="button" aria-pressed="false" aria-label="Switch to dark mode">
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M2 12h3M19 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/></svg>
+        </button>
+        <a class="btn btn--primary nav__cta" href="contact.html">Let's Talk</a>
+        <button class="menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+          <svg class="icon-open" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+          <svg class="icon-close" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <button class="mobile-menu__close" type="button" aria-label="Close menu">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <nav class="mobile-menu__links" aria-label="Mobile">
+          <a href="index.html?home=1" data-home-link>Home</a>
+          <a href="capabilities.html">Capabilities</a>
+          <a href="industries.html">Industries</a>
+          <a href="perspectives.html">Perspectives</a>
+          <a href="contact.html">Let's Talk</a>
+    </nav>
+  </div>
+
+<main id="main">
+<article class="page-hero article-hero">
+  <div class="container">
+    <div class="page-hero__content article-hero__content">
+      <a class="article-back" href="perspectives.html">&larr; Back to Perspectives</a>
+      <span class="persp-card__cat" style="margin-top: var(--sp-5); display:block;">Healthcare & Operations</span>
+      <h1>Regulatory complexity is not the real bottleneck<span class="dot">.</span></h1>
+      <div class="article-meta">
+        <span>April 2026</span>
+        <span aria-hidden="true">&middot;</span>
+        <span>4 min read</span>
+        <span aria-hidden="true">&middot;</span>
+        <span>Pallston Advisory Team</span>
+      </div>
+    </div>
+  </div>
+</article>
+
+<section class="section">
+  <div class="container">
+    <div class="article-body">
+      <p class="lede">Regulatory requirements get blamed for slow modernization more often than they actually deserve. In most of the programs we've seen stall, the regulation itself was clear and had been clear for some time. What was actually slow was the internal process for interpreting that requirement, getting agreement across legal, compliance, clinical, and operational stakeholders on what it meant in practice, and then translating that agreement into a system requirement someone could actually build against.</p>
+      <p>That internal translation process is where the real time goes, and it's largely invisible from the outside, which is why it gets misattributed to the regulation rather than to the organization's own process for interpreting it. Two organizations facing the identical regulatory requirement can move at completely different speeds, not because the rule was different, but because one of them had a faster, clearer internal path from 'what does this require' to 'what are we building.'</p>
+      <p>The organizations that move faster tend to invest specifically in that translation step: a small, empowered group with real authority to interpret a requirement and commit the organization to an interpretation, rather than a requirement that has to pass through every stakeholder sequentially before anyone is willing to commit to a reading of it. That group doesn't replace legal or compliance review. It gives that review something concrete and well-formed to react to, instead of an open question that invites everyone to weigh in from the start.</p>
+      <p>Worth saying plainly: this is a solvable organizational design problem, not an unavoidable cost of doing business in a regulated environment. The regulation sets a real constraint. It rarely sets the pace. The organization's own process for interpreting it does that.</p>
+    </div>
+
+    <div class="article-related">
+      <h2 class="article-related__title">Related perspectives</h2>
+      <div class="persp-grid">
+      <article class="persp-card">
+        <span class="persp-card__cat">Healthcare & Operations</span>
+        <h3>Where clinical and operational priorities actually conflict.</h3>
+        <p>A closer look at the tradeoffs healthcare leaders navigate that rarely make it into a board deck.</p>
+        <p class="persp-card__soon"><a href="article-health-clinical-vs-operational.html">Continue Reading</a></p>
+      </article>
+      <article class="persp-card">
+        <span class="persp-card__cat">Healthcare & Operations</span>
+        <h3>Operational and technology decisions where the margin for error is human.</h3>
+        <p>Perspectives on navigating regulatory complexity and operational strain at the same time.</p>
+        <p class="persp-card__soon"><a href="article-health-margin-for-error.html">Continue Reading</a></p>
+      </article>
+      <article class="persp-card">
+        <span class="persp-card__cat">Infrastructure & Resilience</span>
+        <h3>Modernizing in place, without a single planned outage.</h3>
+        <p>What it actually takes to upgrade a live system that the public depends on every day.</p>
+        <p class="persp-card__soon"><a href="article-infra-modernize-in-place.html">Continue Reading</a></p>
+      </article>
+      </div>
+    </div>
+
+    <div class="article-next">
+      <span class="article-next__label">Next perspective</span>
+      <a class="article-next__link" href="article-supply-distributed-judgment.html">Distributed networks need distributed judgment &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container">
+    <div class="callout">
+      <h2>Bring clarity to what matters next<span class="dot">.</span></h2>
+      <p>Have a question this perspective didn't answer? Start a conversation directly.</p>
+      <div class="cta-row">
+        <a class="btn btn--primary" href="contact.html">Let's Talk</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+  <footer class="site-footer">
+    <div class="container site-footer__top">
+      <div class="site-footer__brand">
+        <svg class="footer-mark" viewBox="-6 -6 152 208" height="38" aria-label="Pallston" role="img"><path d="M0,14 L77,14 A49,49 0 0 1 77,112 L56,112" fill="none" stroke="currentColor" stroke-width="28" stroke-linecap="butt" stroke-linejoin="miter"></path><rect x="0" y="56" width="28" height="84" fill="currentColor"></rect><rect x="0" y="168" width="28" height="28" fill="#0FA18E"></rect></svg>
+      </div>
+      <div class="site-footer__cols">
+        <div class="site-footer__col">
+          <h4>Navigate</h4>
+          <a href="index.html?home=1">Home</a>
+          <a href="capabilities.html">Capabilities</a>
+          <a href="industries.html">Industries</a>
+          <a href="perspectives.html">Perspectives</a>
+          <a href="contact.html">Let's Talk</a>
+        </div>
+        <div class="site-footer__col">
+          <h4>Connect</h4>
+          <a href="mailto:contact@pallston.com">contact@pallston.com</a>
+        </div>
+      </div>
+    </div>
+    <div class="container site-footer__bottom">
+      <div>
+        <p class="site-footer__bottom-byline">Pallston. Headquartered in the United States. Serving nationwide.</p>
+        <p>Copyright © 2026 Pallston LLC. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>

@@ -1,0 +1,83 @@
+/* =========================================================
+   PALLSTON DESIGN TOKENS — v2
+   Two type families only: Sora (display) and Manrope (body).
+   Navy carries authority. Teal is used sparingly, to guide attention.
+   Dark mode is its own deliberate palette, not an inversion.
+   ========================================================= */
+
+:root {
+  --teal: #0FA18E;
+  --teal-soft: rgba(15, 161, 142, 0.10);
+  --navy: #0A2342;
+
+  --font-display: 'Sora', -apple-system, sans-serif;
+  --font-body: 'Manrope', -apple-system, sans-serif;
+
+  --sp-1: 0.25rem;
+  --sp-2: 0.5rem;
+  --sp-3: 0.75rem;
+  --sp-4: 1rem;
+  --sp-5: 1.5rem;
+  --sp-6: 2rem;
+  --sp-7: 3rem;
+  --sp-8: 4rem;
+  --sp-9: 6rem;
+  --sp-10: 8rem;
+
+  --container-max: 1180px;
+  --container-pad: clamp(1.25rem, 5vw, 3rem);
+  --radius-sm: 6px;
+  --radius-md: 10px;
+
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --duration-fast: 160ms;
+  --duration-base: 360ms;
+  --duration-theme: 420ms;
+
+  --glass-bg: rgba(255, 255, 255, 0.66);
+  --glass-border: rgba(10, 35, 66, 0.08);
+  --shadow-xs: 0 1px 2px rgba(10, 35, 66, 0.04);
+  --shadow-sm: 0 2px 8px -2px rgba(10, 35, 66, 0.08), 0 1px 2px rgba(10, 35, 66, 0.04);
+  --shadow-md: 0 12px 28px -10px rgba(10, 35, 66, 0.14), 0 2px 6px -2px rgba(10, 35, 66, 0.06);
+  --shadow-lg: 0 24px 48px -16px rgba(10, 35, 66, 0.18);
+
+  --color-bg: #FFFFFF;
+  --color-bg-alt: #F7F9FA;
+  --color-surface: #FFFFFF;
+  --color-surface-border: #E3E8EE;
+  --color-text: #0A2342;
+  --color-text-body: #41526A;
+  --color-text-muted: #6B7A8F;
+  --color-text-on-navy: #FFFFFF;
+  --color-text-on-navy-muted: #AFC1D6;
+  --color-nav-bg: rgba(255, 255, 255, 0.92);
+  --color-divider: #E3E8EE;
+  --color-focus-ring: #0FA18E;
+  --shadow-card: 0 1px 2px rgba(10, 35, 66, 0.05), 0 6px 18px -12px rgba(10, 35, 66, 0.10);
+  --scrollbar-thumb: #C7D4E2;
+}
+
+[data-theme='dark'] {
+  --glass-bg: rgba(16, 43, 82, 0.55);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.3);
+  --shadow-sm: 0 2px 10px -2px rgba(0, 0, 0, 0.35);
+  --shadow-md: 0 14px 32px -10px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 28px 56px -18px rgba(0, 0, 0, 0.6);
+
+  --color-bg: #0A2342;
+  --color-bg-alt: #0c2a4f;
+  --color-surface: #102b52;
+  --color-surface-border: #1d3354;
+  --color-text: #FFFFFF;
+  --color-text-body: #C7D4E2;
+  --color-text-muted: #8FA3BC;
+  --color-text-on-navy: #FFFFFF;
+  --color-text-on-navy-muted: #AFC1D6;
+  --color-nav-bg: rgba(10, 35, 66, 0.92);
+  --color-divider: #1d3354;
+  --color-focus-ring: #1FD1B8;
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.25), 0 10px 24px -16px rgba(0, 0, 0, 0.45);
+  --scrollbar-thumb: #25406b;
+  --teal: #1FD1B8;
+}

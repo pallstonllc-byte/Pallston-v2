@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#0A2342"/>
+  <!-- Line of Clarity motif: thin signals converging to one resolved line -->
+  <g stroke="#3a5277" stroke-width="1.4" fill="none" opacity="0.55">
+    <path d="M -40 120 C 300 60, 650 150, 1240 95"/>
+    <path d="M -40 175 C 320 230, 600 100, 1240 150"/>
+    <path d="M -40 230 C 280 180, 700 260, 1240 205"/>
+    <path d="M -40 480 C 320 540, 650 460, 1240 510"/>
+    <path d="M -40 530 C 300 470, 680 560, 1240 565"/>
+    <path d="M -40 580 C 340 610, 620 520, 1240 575"/>
+  </g>
+  <path d="M -40 362 C 250 357, 950 365, 1240 359" stroke="#0FA18E" stroke-width="2.5" fill="none" opacity="0.9"/>
+
+  <!-- icon mark -->
+  <g transform="translate(96,206) scale(0.58)">
+    <path d="M0,14 L77,14 A49,49 0 0 1 77,112 L56,112" fill="none" stroke="#FFFFFF" stroke-width="28" stroke-linecap="butt" stroke-linejoin="miter"></path>
+    <rect x="0" y="56" width="28" height="84" fill="#FFFFFF"></rect>
+    <rect x="0" y="168" width="28" height="28" fill="#0FA18E"></rect>
+  </g>
+
+  <text x="180" y="296" font-family="Sora, sans-serif" font-weight="700" font-size="48" fill="#FFFFFF" letter-spacing="-1">Pallston</text>
+  <text x="96" y="425" font-family="Sora, sans-serif" font-weight="700" font-size="40" fill="#FFFFFF" letter-spacing="-0.5">Confidence Begins with Clarity.</text>
+  <text x="96" y="468" font-family="Manrope, sans-serif" font-weight="400" font-size="20" fill="#AFC1D6">Modern advisory. Disciplined execution. Lasting transformation.</text>
+</svg>

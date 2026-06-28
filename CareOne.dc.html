@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<!-- CONFIDENTIAL BANNER -->
+<div style="position: sticky; top: 0; z-index: 100; background: #0A2342; color: #C5D5E8; font-family: 'Inter', system-ui, sans-serif; font-size: 12.5px; font-weight: 600; letter-spacing: 0.08em; text-align: center; padding: 9px 24px; display: flex; align-items: center; justify-content: center; gap: 10px; border-bottom: 1px solid rgba(255,255,255,0.08);">
+  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#0FA18E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+  <span>CONFIDENTIAL &nbsp;·&nbsp; PALLSTON LLC &nbsp;·&nbsp; NOT FOR DISTRIBUTION</span>
+</div>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@500;600;700;800&family=Inter:wght@400;450;500;600;700&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { margin: 0; }
+  ::selection { background: #0B6EFD; color: #fff; }
+  @keyframes alinea-pulse { 0%,100% { transform: scale(1); opacity: .55; } 50% { transform: scale(1.35); opacity: 0; } }
+  @keyframes alinea-float { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-7px); } }
+  @keyframes alinea-dash { to { stroke-dashoffset: -28; } }
+
+  /* ─── RESPONSIVE ─────────────────────────────────────────── */
+
+  /* Tablet ≤1024px */
+  @media (max-width: 1024px) {
+    [style*="grid-template-columns: repeat(4, 1fr)"] { grid-template-columns: 1fr 1fr !important; }
+    [style*="font-size: 56px"] { font-size: 40px !important; line-height: 1.1 !important; }
+    [style*="font-size: 42px"] { font-size: 32px !important; }
+    [style*="padding: 92px 32px 104px"] { padding: 68px 28px 72px !important; }
+    [style*="grid-template-columns: 1.05fr 0.95fr"] { gap: 32px !important; }
+  }
+
+  /* Mobile ≤768px */
+  @media (max-width: 768px) {
+
+    /* Nav: collapse to logo + CTA only */
+    [style*="height: 68px"] { height: auto !important; padding: 12px 20px !important; }
+    nav a[href="#platform"],
+    nav a[href="#how"],
+    nav a[href="#architecture"],
+    nav a[href="#roadmap"] { display: none !important; }
+    nav > div { display: none !important; }
+    nav { gap: 10px !important; }
+
+    /* Prevent brand name from wrapping */
+    header [style*="gap: 11px"] span { white-space: nowrap; }
+    header [style*="justify-content: space-between"] { flex-wrap: nowrap !important; gap: 12px !important; }
+
+    /* Hero: single column, hide network visual */
+    [style*="1.05fr 0.95fr"] { grid-template-columns: 1fr !important; padding: 48px 20px 52px !important; gap: 0 !important; }
+    [style*="height: 460px"] { display: none !important; }
+
+    /* Hero badge */
+    [style*="background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.16)"] { font-size: 10px !important; padding: 5px 10px !important; }
+
+    /* Hero CTA buttons: stack */
+    [style*="flex-wrap: wrap; gap: 14px; margin-top: 36px"] { flex-direction: column !important; align-items: flex-start !important; gap: 12px !important; }
+
+    /* Hero stat strip: wrap, hide dividers */
+    [style*="gap: 28px; margin-top: 44px"] { gap: 14px !important; flex-wrap: wrap !important; }
+    [style*="width: 1px; background: rgba(255,255,255,0.12)"] { display: none !important; }
+
+    /* Font scale-down */
+    [style*="font-size: 56px"] { font-size: 28px !important; line-height: 1.1 !important; }
+    [style*="font-size: 42px"] { font-size: 24px !important; }
+    [style*="font-size: 36px"] { font-size: 22px !important; }
+    [style*="font-size: 18.5px"] { font-size: 15px !important; }
+    [style*="font-size: 18px"] { font-size: 15px !important; }
+
+    /* Section horizontal padding */
+    section { padding-left: 20px !important; padding-right: 20px !important; }
+
+    /* Inner max-width containers: remove extra side padding */
+    [style*="max-width: 1200px; margin: 0 auto; padding: 0 32px"] { padding-left: 0 !important; padding-right: 0 !important; }
+
+    /* 4-col → 2-col (metrics, roadmap, architecture) */
+    [style*="grid-template-columns: repeat(4, 1fr)"] { grid-template-columns: 1fr 1fr !important; }
+
+    /* 3-col → 1-col (how it works, industries, outcomes) */
+    [style*="grid-template-columns: repeat(3, 1fr)"] { grid-template-columns: 1fr !important; }
+
+    /* Claude reasoning: 2-col → stack */
+    [style*="grid-template-columns: 1fr 1fr; gap: 56px"] { grid-template-columns: 1fr !important; gap: 28px !important; }
+
+    /* What it replaces: 2-col → stack */
+    [style*="grid-template-columns: 1fr 1fr; gap: 26px"] { grid-template-columns: 1fr !important; }
+
+    /* MVP: split → stack */
+    [style*="grid-template-columns: 1.15fr 0.85fr"] { grid-template-columns: 1fr !important; }
+
+    /* Expansion: split → stack */
+    [style*="grid-template-columns: 0.8fr 1.2fr"] { grid-template-columns: 1fr !important; }
+
+    /* Roadmap: hide connecting line */
+    [style*="top: 26px; left: 8%"] { display: none !important; }
+
+    /* Problem box */
+    [style*="padding: 34px 38px"] { padding: 22px 18px !important; }
+
+    /* CTA card inner */
+    [style*="padding: 72px 56px"] { padding: 40px 24px !important; }
+
+    /* MVP panel padding */
+    [style*="padding: 46px"] { padding: 26px 20px !important; }
+
+    /* Footer */
+    [style*="padding: 52px 32px 40px"] { padding: 36px 20px 28px !important; }
+    [style*="An initiative by"] { flex-direction: column !important; align-items: flex-start !important; }
+
+    /* Architecture intelligence inner grid: 4 → 2 */
+    [style*="grid-template-columns: repeat(4, 1fr); gap: 12px"] { grid-template-columns: 1fr 1fr !important; }
+
+    /* Architecture outcomes: 3 → 2 */
+    [style*="grid-template-columns: repeat(3, 1fr); gap: 12px"] { grid-template-columns: 1fr 1fr !important; }
+
+    /* Expansion future tiles: 3 → 2 */
+    [style*="grid-template-columns: repeat(3, 1fr); gap: 12px"] { grid-template-columns: 1fr 1fr !important; }
+
+    /* Confidential banner text: tighten */
+    [style*="letter-spacing: 0.08em; text-align: center; padding: 9px 24px"] { padding: 7px 14px !important; font-size: 10.5px !important; }
+  }
+
+  /* Small mobile ≤480px */
+  @media (max-width: 480px) {
+    /* Agent cards: 2-col → 1-col */
+    [style*="grid-template-columns: 1fr 1fr; gap: 14px"] { grid-template-columns: 1fr !important; }
+
+    /* Metric/roadmap: 2-col → 1-col */
+    [style*="grid-template-columns: repeat(4, 1fr)"] { grid-template-columns: 1fr !important; }
+
+    /* Tighten more */
+    [style*="font-size: 28px"] { font-size: 24px !important; }
+
+    /* Section paddings: reduce top/bottom too */
+    section { padding-top: 40px !important; padding-bottom: 40px !important; }
+  }
+</style>
+</helmet>
+<div style="font-family: 'Inter', system-ui, sans-serif; color: #1F2937; background: #FFFFFF; -webkit-font-smoothing: antialiased; overflow-x: hidden;">
+
+  <header style="position: sticky; top: 0; z-index: 50; background: rgba(255,255,255,0.95); backdrop-filter: saturate(180%) blur(14px); -webkit-backdrop-filter: saturate(180%) blur(14px); border-bottom: 1px solid #EEF2F7;">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 32px; height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 24px;">
+      <div style="display: flex; align-items: center; gap: 11px;">
+        <div style="width: 30px; height: 30px; border-radius: 8px; background: linear-gradient(135deg, #0B6EFD, #0FA18E); display: flex; align-items: center; justify-content: center;">
+          <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 7v10l8 5 8-5V7z"></path><path d="M12 22V12"></path><path d="m4 7 8 5 8-5"></path></svg>
+        </div>
+        <span style="font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 16px; letter-spacing: -0.01em; color: #0A2342;">CareOne</span>
+      </div>
+      <nav style="display: flex; align-items: center; gap: 30px;">
+        <a href="#platform" style="font-size: 14px; font-weight: 500; color: #4B5563; text-decoration: none;" style-hover="color:#0A2342;">Platform</a>
+        <a href="#how" style="font-size: 14px; font-weight: 500; color: #4B5563; text-decoration: none;" style-hover="color:#0A2342;">How it works</a>
+        <a href="#architecture" style="font-size: 14px; font-weight: 500; color: #4B5563; text-decoration: none;" style-hover="color:#0A2342;">Architecture</a>
+        <a href="#roadmap" style="font-size: 14px; font-weight: 500; color: #4B5563; text-decoration: none;" style-hover="color:#0A2342;">Roadmap</a>
+        <div style="display: flex; align-items: center; gap: 10px; padding-left: 10px; border-left: 1px solid #E7EDF5;">
+          <span style="font-size: 12px; font-weight: 500; color: #94A3B8; white-space: nowrap;">An initiative by</span>
+          <img src="data:image/png;base64,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" alt="Pallston" style="height: 22px; width: auto; display: block;">
+        </div>
+        <a href="#cta" style="display: inline-flex; align-items: center; gap: 7px; font-size: 14px; font-weight: 600; color: #fff; background: #0A2342; padding: 9px 16px; border-radius: 9px; text-decoration: none;" style-hover="background:#0B6EFD;">Explore the Platform</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section style="position: relative; background: radial-gradient(120% 120% at 80% -10%, #134074 0%, #0A2342 45%, #071A33 100%); color: #fff; overflow: hidden;">
+    <div style="position: absolute; inset: 0; background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.05) 1px, transparent 0); background-size: 36px 36px; pointer-events: none;"></div>
+    <div style="position: absolute; top: -160px; right: -120px; width: 520px; height: 520px; background: radial-gradient(circle, rgba(15,161,142,0.28), transparent 65%); pointer-events: none;"></div>
+    <div style="position: relative; max-width: 1200px; margin: 0 auto; padding: 92px 32px 104px; display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 56px; align-items: center;">
+      <div>
+        <div style="display: inline-flex; align-items: center; gap: 9px; padding: 7px 14px; border-radius: 100px; background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.16); font-size: 12.5px; font-weight: 600; letter-spacing: 0.03em; color: #BFE0FF;">
+          <span style="width: 6px; height: 6px; border-radius: 50%; background: #0FA18E; box-shadow: 0 0 0 4px rgba(15,161,142,0.25);"></span>
+          PLATFORM PREVIEW
+        </div>
+        <h1 style="font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 56px; line-height: 1.05; letter-spacing: -0.025em; margin: 26px 0 0; text-wrap: balance;">An AI Operating Layer for Healthcare Administration</h1>
+        <p style="font-size: 18.5px; line-height: 1.6; color: #C5D5E8; margin: 24px 0 0; max-width: 560px;">CareOne connects providers, payers, and reimbursement systems through a shared AI intelligence layer — helping automate eligibility, prior authorization, claim validation, denials, appeals, and payment workflows.</p>
+        <div style="display: flex; flex-wrap: wrap; gap: 14px; margin-top: 36px;">
+          <a href="#platform" style="display: inline-flex; align-items: center; gap: 9px; background: #0B6EFD; color: #fff; font-weight: 600; font-size: 15.5px; padding: 14px 24px; border-radius: 11px; text-decoration: none; box-shadow: 0 12px 30px -8px rgba(11,110,253,0.55);" style-hover="background:#2c82ff; transform: translateY(-1px);">Explore the Platform
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg>
+          </a>
+          <a href="#how" style="display: inline-flex; align-items: center; gap: 9px; background: rgba(255,255,255,0.07); color: #fff; font-weight: 600; font-size: 15.5px; padding: 14px 24px; border-radius: 11px; text-decoration: none; border: 1px solid rgba(255,255,255,0.18);" style-hover="background: rgba(255,255,255,0.14);">View Use Cases</a>
+        </div>
+        <div style="display: flex; gap: 28px; margin-top: 44px; flex-wrap: wrap;">
+          <div><div style="font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 22px; color: #fff;">HIPAA-ready</div><div style="font-size: 13px; color: #93A8C4; margin-top: 2px;">security design</div></div>
+          <div style="width: 1px; background: rgba(255,255,255,0.12);"></div>
+          <div><div style="font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 22px; color: #fff;">HL7 · FHIR · X12</div><div style="font-size: 13px; color: #93A8C4; margin-top: 2px;">integration-ready</div></div>
+          <div style="width: 1px; background: rgba(255,255,255,0.12);"></div>
+          <div><div style="font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 22px; color: #fff;">API-first</div><div style="font-size: 13px; color: #93A8C4; margin-top: 2px;">enterprise integration</div></div>
+        </div>
+      </div>
+
+      <!-- network visual -->
+      <div style="position: relative; height: 460px; display: flex; align-items: center; justify-content: center;">
+        <div style="position: relative; width: 460px; height: 440px;">
+          <svg viewBox="0 0 460 440" width="460" height="440" style="position: absolute; inset: 0;" fill="none">
+            <g stroke="#3E6FA8" stroke-width="1.6" stroke-dasharray="5 6" style="animation: alinea-dash 1.6s linear infinite;">
+              <path d="M110 86 L230 220"></path>
+              <path d="M350 86 L230 220"></path>
+              <path d="M58 222 L230 220"></path>
+              <path d="M402 222 L230 220"></path>
+              <path d="M110 358 L230 220"></path>
+              <path d="M350 358 L230 220"></path>
+            </g>
+          </svg>
+          <!-- center -->
+          <div style="position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%); width: 178px; height: 178px; display: flex; align-items: center; justify-content: center;">
+            <sc-if value="{{ animateNetwork }}" hint-placeholder-val="{{ true }}">
+              <div style="position: absolute; inset: 0; border-radius: 26px; border: 1.5px solid #0FA18E; animation: alinea-pulse 2.8s ease-out infinite;"></div>
+            </sc-if>
+            <div style="position: relative; width: 158px; height: 158px; border-radius: 24px; background: linear-gradient(150deg, #0B6EFD, #0FA18E); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; box-shadow: 0 24px 50px -12px rgba(11,110,253,0.6); text-align: center; padding: 0 14px;">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l2.5 2.5M16.5 16.5 19 19M19 5l-2.5 2.5M7.5 16.5 5 19"></path></svg>
+              <div style="font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 14px; color: #fff; line-height: 1.25;">AI Intelligence Layer</div>
+            </div>
+          </div>
+          <!-- nodes -->
+          <div data-node style="position: absolute; left: 38px; top: 56px; transform: translate(-50%,-50%); animation: alinea-float 5s ease-in-out infinite;">
+            <div style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 14px; border-radius: 12px; background: rgba(255,255,255,0.94); box-shadow: 0 10px 26px -10px rgba(0,0,0,0.5); white-space: nowrap;"><span style="width:8px;height:8px;border-radius:50%;background:#0B6EFD;"></span><span style="font-size:13px;font-weight:600;color:#0A2342;">Providers</span></div>
+          </div>
+          <div data-node style="position: absolute; left: 350px; top: 56px; transform: translate(-50%,-50%); animation: alinea-float 5s ease-in-out infinite .6s;">
+            <div style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 14px; border-radius: 12px; background: rgba(255,255,255,0.94); box-shadow: 0 10px 26px -10px rgba(0,0,0,0.5); white-space: nowrap;"><span style="width:8px;height:8px;border-radius:50%;background:#0FA18E;"></span><span style="font-size:13px;font-weight:600;color:#0A2342;">Payers</span></div>
+          </div>
+          <div data-node style="position: absolute; left: 30px; top: 222px; transform: translate(-50%,-50%); animation: alinea-float 5s ease-in-out infinite 1.2s;">
+            <div style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 14px; border-radius: 12px; background: rgba(255,255,255,0.94); box-shadow: 0 10px 26px -10px rgba(0,0,0,0.5); white-space: nowrap;"><span style="width:8px;height:8px;border-radius:50%;background:#0B6EFD;"></span><span style="font-size:13px;font-weight:600;color:#0A2342;">EHRs</span></div>
+          </div>
+          <div data-node style="position: absolute; left: 408px; top: 222px; transform: translate(-50%,-50%); animation: alinea-float 5s ease-in-out infinite 1.8s;">
+            <div style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 14px; border-radius: 12px; background: rgba(255,255,255,0.94); box-shadow: 0 10px 26px -10px rgba(0,0,0,0.5); white-space: nowrap;"><span style="width:8px;height:8px;border-radius:50%;background:#0FA18E;"></span><span style="font-size:13px;font-weight:600;color:#0A2342;">Clearinghouses</span></div>
+          </div>
+          <div data-node style="position: absolute; left: 42px; top: 388px; transform: translate(-50%,-50%); animation: alinea-float 5s ease-in-out infinite 2.4s;">
+            <div style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 14px; border-radius: 12px; background: rgba(255,255,255,0.94); box-shadow: 0 10px 26px -10px rgba(0,0,0,0.5); white-space: nowrap;"><span style="width:8px;height:8px;border-radius:50%;background:#0B6EFD;"></span><span style="font-size:13px;font-weight:600;color:#0A2342;">Revenue Cycle</span></div>
+          </div>
+          <div data-node style="position: absolute; left: 350px; top: 388px; transform: translate(-50%,-50%); animation: alinea-float 5s ease-in-out infinite 3s;">
+            <div style="display: inline-flex; align-items: center; gap: 8px; padding: 10px 14px; border-radius: 12px; background: rgba(255,255,255,0.94); box-shadow: 0 10px 26px -10px rgba(0,0,0,0.5); white-space: nowrap;"><span style="width:8px;height:8px;border-radius:50%;background:#0FA18E;"></span><span style="font-size:13px;font-weight:600;color:#0A2342;">AI Agents</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section id="platform" style="padding: 90px 32px; background: #fff;">
+    <div style="max-width: 1000px; margin: 0 auto; text-align: center;">
+      <div style="font-size: 13px; font-weight: 700; letter-spacing: 0.12em; color: #0FA18E; text-transform: uppercase;">The Problem</div>
+      <h2 style="font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 36px; line-height: 1.15; letter-spacing: -0.02em; color: #0A2342; margin: 14px 0 0; text-wrap: balance;">Administration is fragmented across systems that don't talk to each other</h2>
+      <div data-reveal style="margin-top: 34px; background: linear-gradient(180deg, #F6F8FB, #fff); border: 1px solid #E7EDF5; border-left: 4px solid #0B6EFD; border-radius: 16px; padding: 34px 38px; text-align: left; box-shadow: 0 10px 30px -18px rgba(10,35,66,0.25);">
+        <p style="font-size: 18px; line-height: 1.65; color: #334155; margin: 0;">Healthcare administration remains fragmented across disconnected EHRs, payer portals, clearinghouses, phone calls, faxes, PDFs, spreadsheets, and manual reviews. This creates <strong style="color:#0A2342;">delayed care, preventable denials, slower reimbursement, excessive administrative cost,</strong> and limited visibility across the full reimbursement lifecycle.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- METRICS -->
+  <section style="padding: 18px 32px 90px; background: #fff;">
+    <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); gap: 22px;">
+      <div data-reveal style="background: #fff; border: 1px solid #E7EDF5; border-radius: 18px; padding: 28px; box-shadow: 0 8px 24px -16px rgba(10,35,66,0.3);" style-hover="transform: translateY(-3px); box-shadow: 0 18px 40px -20px rgba(10,35,66,0.4);">
+        <div style="width: 46px; height: 46px; border-radius: 12px; background: #EAF4FF; display: flex; align-items: center; justify-content: center; color: #0B6EFD;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="2" x2="12" y2="22"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
+        </div>
+        <div style="font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 34px; color: #0A2342; margin-top: 18px; letter-spacing: -0.02em;">$265B+</div>
+        <div style="font-size: 14px; color: #6B7280; margin-top: 6px; line-height: 1.45;">annual U.S. healthcare administrative waste</div>
+      </div>
+      <div data-reveal style="background: #fff; border: 1px solid #E7EDF5; border-radius: 18px; padding: 28px; box-shadow: 0 8px 24px -16px rgba(10,35,66,0.3);" style-hover="transform: translateY(-3px); box-shadow: 0 18px 40px -20px rgba(10,35,66,0.4);">
+        <div style="width: 46px; height: 46px; border-radius: 12px; background: #FDECEC; display: flex; align-items: center; justify-content: center; color: #D9534F;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="m15 9-6 6M9 9l6 6"></path></svg>
+        </div>
+        <div style="font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 34px; color: #0A2342; margin-top: 18px; letter-spacing: -0.02em;">34%</div>
+        <div style="font-size: 14px; color: #6B7280; margin-top: 6px; line-height: 1.45;">of claims denied on first submission</div>
+      </div>
+      <div data-reveal style="background: #fff; border: 1px solid #E7EDF5; border-radius: 18px; padding: 28px; box-shadow: 0 8px 24px -16px rgba(10,35,66,0.3);" style-hover="transform: translateY(-3px); box-shadow: 0 18px 40px -20px rgba(10,35,66,0.4);">
+        <div style="width: 46px; height: 46px; border-radius: 12px; background: #FFF3E0; display: flex; align-items: center; justify-content: center; color: #E08600;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg>
+        </div>
+        <div style="font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 34px; color: #0A2342; margin-top: 18px; letter-spacing: -0.02em;">16 days</div>
+        <div style="font-size: 14px; color: #6B7280; margin-top: 6px; line-height: 1.45;">average manual prior authorization turnaround</div>
+      </div>
+      <div data-reveal style="background: linear-gradient(160deg, #0FA18E, #0B6EFD); border-radius: 18px; padding: 28px; box-shadow: 0 14px 34px -16px rgba(15,161,142,0.55);" style-hover="transform: translateY(-3px);">
+        <div style="width: 46px; height: 46px; border-radius: 12px; background: rgba(255,255,255,0.18); display: flex; align-items: center; justify-content: center; color: #fff;">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9z"></path></svg>
+        </div>
+        <div style="font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 34px; color: #fff; margin-top: 18px; letter-spacing: -0.02em;">&lt;60 sec</div>
+        <div style="font-size: 14px; color: rgba(255,255,255,0.85); margin-top: 6px; line-height: 1.45;">target AI decision support time</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how" style="padding: 92px 32px; background: #F6F8FB; border-top: 1px solid #EEF2F7; border-bottom: 1px solid #EEF2F7;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <div style="text-align: center; max-width: 720px; margin: 0 auto;">
+        <div style="font-size: 13px; font-weight: 700; letter-spacing: 0.12em; color: #0FA18E; text-transform: uppercase;">How It Works</div>
+        <h2 style="font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 36px; line-height: 1.15; letter-spacing: -0.02em; color: #0A2342; margin: 14px 0 0;">One intelligent workflow, from eligibility to reimbursement</h2>
+        <p style="font-size: 17px; color: #6B7280; line-height: 1.6; margin: 16px 0 0;">Six coordinated stages run on a shared intelligence layer — each step passes explainable, auditable context to the next.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; margin-top: 48px;">
+        <div data-reveal style="background: #fff; border: 1px solid #E7EDF5; border-radius: 18px; padding: 28px; box-shadow: 0 8px 24px -18px rgba(10,35,66,0.3);" style-hover="transform: translateY(-4px); box-shadow: 0 22px 44px -22px rgba(10,35,66,0.4); border-color:#CFE0F7;">
+          <div style="display: flex; align-items: center; justify-content: space-between;">
+            <div style="width: 48px; height: 48px; border-radius: 13px; background: #EAF4FF; display: flex; align-items: center; justify-content: center; color: #0B6EFD;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"></path><path d="M21 12c-1 0-3-1-3-3s2-3 3-3-1-3-3-3-3 2-3 3-2-2-3-3-3 2-3 3 2 3 3 3-2 1-3 3 2 3 3 3 1 3 3 3 3-2 3-3 2 2 3 3 3-2 3-3-2-3-3-3z"></path></svg>
+            </div>
+            <span style="font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 13px; color: #B6C2D4;">STEP 1</span>
+          </div>
+          <div style="font-size: 12.5px; font-weight: 700; letter-spacing: 0.08em; color: #0B6EFD; text-transform: uppercase; margin-top: 22px;">Verify</div>
+          <h3 style="font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 19px; color: #0A2342; margin: 6px 0 0;">Eligibility &amp; Benefits Intelligence</h3>
+          <p style="font-size: 14.5px; line-height: 1.6; color: #6B7280; margin: 12px 0 0;">Instantly verifies patient coverage, active policy status, deductibles, copays, exclusions, and benefit rules before care is delivered.</p>
+        </div>
+        <div data-reveal style="background: #fff; border: 1px solid #E7EDF5; border-radius: 18px; padding: 28px; box-shadow: 0 8px 24px -18px rgba(10,35,66,0.3);" style-hover="transform: translateY(-4px); box-shadow: 0 22px 44px -22px rgba(10,35,66,0.4); border-color:#CFE0F7;">
+          <div style="display: flex; align-items: center; justify-content: space-between;">
+            <div style="width: 48px; height: 48px; border-radius: 13px; background: #EAF8F1; display: flex; align-items: center; justify-content: center; color: #0FA18E;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="2" width="8" height="4" rx="1"></rect><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><path d="m9 14 2 2 4-4"></path></svg>
+            </div>
+            <span style="font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 13px; color: #B6C2D4;">STEP 2</span>
+          </div>
+          <div style="font-size: 12.5px; font-weight: 700; letter-spacing: 0.08em; color: #0FA18E; text-transform: uppercase; margin-top: 22px;">Authorize</div>
+          <h3 style="font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 19px; color: #0A2342; margin: 6px 0 0;">Prior Authorization Automation</h3>
+          <p style="font-size: 14.5px; line-height: 1.6; color: #6B7280; margin: 12px 0 0;">Reviews diagnosis codes, clinical documentation, payer policies, and medical necessity criteria to approve, deny, or escalate requests.</p>
+        </div>
+        <div data-reveal style="background: #fff; border: 1px solid #E7EDF5; border-radius: 18px; padding: 28px; box-shadow: 0 8px 24px -18px rgba(10,35,66,0.3);" style-hover="transform: translateY(-4px); box-shadow: 0 22px 44px -22px rgba(10,35,66,0.4); border-color:#CFE0F7;">
+          <div style="display: flex; align-items: center; justify-content: space-between;">
+            <div style="width: 48px; height: 48px; border-radius: 13px; background: #EAF4FF; display: flex; align-items: center; justify-content: center; color: #0B6EFD;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6"></path><path d="M9 13h6M9 17h4"></path></svg>
+            </div>
+            <span style="font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 13px; color: #B6C2D4;">STEP 3</span>
+          </div>
+          <div style="font-size: 12.5px; font-weight: 700; letter-spacing: 0.08em; color: #0B6EFD; text-transform: uppercase; margin-top: 22px;">Document</div>
+          <h3 style="font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 19px; color: #0A2342; margin: 6px 0 0;">Clinical Documentation Review</h3>
+          <p style="font-size: 14.5px; line-height: 1.6; color: #6B7280; margin: 12px 0 0;">Identifies missing documentation, summarizes clinical context, and ensures the record supports the requested service or claim.</p>
+        </div>
+        <div data-reveal style="background: #fff; border: 1px solid #E7EDF5; border-radius: 18px; padding: 28px; box-shadow: 0 8px 24px -18px rgba(10,35,66,0.3);" style-hover="transform: translateY(-4px); box-shadow: 0 22px 44px -22px rgba(10,35,66,0.4); border-color:#CFE0F7;">
+          <div style="display: flex; align-items: center; justify-content: space-between;">
+            <div style="width: 48px; height: 48px; border-radius: 13px; background: #EAF8F1; display: flex; align-items: center; justify-content: center; color: #0FA18E;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 11l3 3L22 4"></path><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"></path></svg>
+            </div>
+            <span style="font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 13px; color: #B6C2D4;">STEP 4</span>
+          </div>
+          <div style="font-size: 12.5px; font-weight: 700; letter-spacing: 0.08em; color: #0FA18E; text-transform: uppercase; margin-top: 22px;">Validate</div>
+          <h3 style="font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 19px; color: #0A2342; margin: 6px 0 0;">Claim &amp; Coding Validation</h3>
+          <p style="font-size: 14.5px; line-height: 1.6; color: #6B7280; margin: 12px 0 0;">Checks CPT, ICD-10, modifiers, charges, payer rules, and documentation alignment before submission.</p>
+        </div>
+        <div data-reveal style="background: #fff; border: 1px solid #E7EDF5; border-radius: 18px; padding: 28px; box-shadow: 0 8px 24px -18px rgba(10,35,66,0.3);" style-hover="transform: translateY(-4px); box-shadow: 0 22px 44px -22px rgba(10,35,66,0.4); border-color:#CFE0F7;">
+          <div style="display: flex; align-items: center; justify-content: space-between;">
+            <div style="width: 48px; height: 48px; border-radius: 13px; background: #EAF4FF; display: flex; align-items: center; justify-content: center; color: #0B6EFD;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path><path d="m9 12 2 2 4-4"></path></svg>
+            </div>
+            <span style="font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 13px; color: #B6C2D4;">STEP 5</span>
+          </div>
+          <div style="font-size: 12.5px; font-weight: 700; letter-spacing: 0.08em; color: #0B6EFD; text-transform: uppercase; margin-top: 22px;">Protect</div>
+          <h3 style="font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 19px; color: #0A2342; margin: 6px 0 0;">Payment Integrity &amp; Fraud Detection</h3>
+          <p style="font-size: 14.5px; line-height: 1.6; color: #6B7280; margin: 12px 0 0;">Flags duplicate billing, upcoding, unbundling, excessive units, fee schedule anomalies, and suspicious patterns before payment.</p>
+        </div>
+        <div data-reveal style="background: #fff; border: 1px solid #E7EDF5; border-radius: 18px; padding: 28px; box-shadow: 0 8px 24px -18px rgba(10,35,66,0.3);" style-hover="transform: translateY(-4px); box-shadow: 0 22px 44px -22px rgba(10,35,66,0.4); border-color:#CFE0F7;">
+          <div style="display: flex; align-items: center; justify-content: space-between;">
+            <div style="width: 48px; height: 48px; border-radius: 13px; background: #EAF8F1; display: flex; align-items: center; justify-content: center; color: #0FA18E;">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 2v6h-6"></path><path d="M3 12a9 9 0 0 1 15-6.7L21 8"></path><path d="M3 22v-6h6"></path><path d="M21 12a9 9 0 0 1-15 6.7L3 16"></path></svg>
+            </div>
+            <span style="font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 13px; color: #B6C2D4;">STEP 6</span>
+          </div>
+          <div style="font-size: 12.5px; font-weight: 700; letter-spacing: 0.08em; color: #0FA18E; text-transform: uppercase; margin-top: 22px;">Resolve</div>
+          <h3 style="font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 19px; color: #0A2342; margin: 6px 0 0;">Denials, Appeals &amp; Payment Orchestration</h3>
+          <p style="font-size: 14.5px; line-height: 1.6; color: #6B7280; margin: 12px 0 0;">Generates appeal packages, explains denial reasons, tracks claim status, and supports final payment reconciliation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT IT REPLACES -->
+  <section style="padding: 92px 32px; background: #fff;">
+    <div style="max-width: 1100px; margin: 0 auto;">
+      <div style="text-align: center; max-width: 720px; margin: 0 auto;">
+        <div style="font-size: 13px; font-weight: 700; letter-spacing: 0.12em; color: #0FA18E; text-transform: uppercase;">What It Replaces</div>
+        <h2 style="font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 36px; line-height: 1.15; letter-spacing: -0.02em; color: #0A2342; margin: 14px 0 0;">From manual and reactive to real-time and orchestrated</h2>
+      </div>
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 26px; margin-top: 46px; align-items: stretch;">
+        <div data-reveal style="background: #FAFBFC; border: 1px solid #EAEEF3; border-radius: 20px; padding: 32px;">
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 22px;">
+            <span style="font-size: 13px; font-weight: 700; letter-spacing: 0.06em; color: #94A3B8; text-transform: uppercase;">Current Workflow</span>
+          </div>
+          <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 14px;">
+            <li style="display: flex; align-items: center; gap: 13px; font-size: 15px; color: #64748B;"><span style="flex:none;width:24px;height:24px;border-radius:7px;background:#FDECEC;display:flex;align-items:center;justify-content:center;color:#D9534F;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"></path></svg></span>Manual eligibility calls</li>
+            <li style="display: flex; align-items: center; gap: 13px; font-size: 15px; color: #64748B;"><span style="flex:none;width:24px;height:24px;border-radius:7px;background:#FDECEC;display:flex;align-items:center;justify-content:center;color:#D9534F;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"></path></svg></span>Fax-based prior authorization</li>
+            <li style="display: flex; align-items: center; gap: 13px; font-size: 15px; color: #64748B;"><span style="flex:none;width:24px;height:24px;border-radius:7px;background:#FDECEC;display:flex;align-items:center;justify-content:center;color:#D9534F;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"></path></svg></span>Disconnected payer portals</li>
+            <li style="display: flex; align-items: center; gap: 13px; font-size: 15px; color: #64748B;"><span style="flex:none;width:24px;height:24px;border-radius:7px;background:#FDECEC;display:flex;align-items:center;justify-content:center;color:#D9534F;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"></path></svg></span>Manual claim review</li>
+            <li style="display: flex; align-items: center; gap: 13px; font-size: 15px; color: #64748B;"><span style="flex:none;width:24px;height:24px;border-radius:7px;background:#FDECEC;display:flex;align-items:center;justify-content:center;color:#D9534F;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"></path></svg></span>Reactive denials management</li>
+            <li style="display: flex; align-items: center; gap: 13px; font-size: 15px; color: #64748B;"><span style="flex:none;width:24px;height:24px;border-radius:7px;background:#FDECEC;display:flex;align-items:center;justify-content:center;color:#D9534F;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"></path></svg></span>Limited visibility</li>
+            <li style="display: flex; align-items: center; gap: 13px; font-size: 15px; color: #64748B;"><span style="flex:none;width:24px;height:24px;border-radius:7px;background:#FDECEC;display:flex;align-items:center;justify-content:center;color:#D9534F;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"></path></svg></span>Delayed reimbursement</li>
+          </ul>
+        </div>
+        <div data-reveal style="position: relative; background: linear-gradient(180deg, #EAF4FF, #fff); border: 1px solid #CFE0F7; border-radius: 20px; padding: 32px; box-shadow: 0 18px 44px -26px rgba(11,110,253,0.5);">
+          <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 22px;">
+            <span style="font-size: 13px; font-weight: 700; letter-spacing: 0.06em; color: #0B6EFD; text-transform: uppercase;">AI-Enabled Workflow</span>
+          </div>
+          <ul style="list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 14px;">
+            <li style="display: flex; align-items: center; gap: 13px; font-size: 15px; font-weight: 500; color: #0A2342;"><span style="flex:none;width:24px;height:24px;border-radius:7px;background:#0B6EFD;display:flex;align-items:center;justify-content:center;color:#fff;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></span>Real-time eligibility verification</li>
+            <li style="display: flex; align-items: center; gap: 13px; font-size: 15px; font-weight: 500; color: #0A2342;"><span style="flex:none;width:24px;height:24px;border-radius:7px;background:#0B6EFD;display:flex;align-items:center;justify-content:center;color:#fff;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></span>AI-assisted authorization</li>
+            <li style="display: flex; align-items: center; gap: 13px; font-size: 15px; font-weight: 500; color: #0A2342;"><span style="flex:none;width:24px;height:24px;border-radius:7px;background:#0B6EFD;display:flex;align-items:center;justify-content:center;color:#fff;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></span>Shared provider-payer workspace</li>
+            <li style="display: flex; align-items: center; gap: 13px; font-size: 15px; font-weight: 500; color: #0A2342;"><span style="flex:none;width:24px;height:24px;border-radius:7px;background:#0B6EFD;display:flex;align-items:center;justify-content:center;color:#fff;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></span>Pre-submission claim validation</li>
+            <li style="display: flex; align-items: center; gap: 13px; font-size: 15px; font-weight: 500; color: #0A2342;"><span style="flex:none;width:24px;height:24px;border-radius:7px;background:#0B6EFD;display:flex;align-items:center;justify-content:center;color:#fff;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></span>Automated denial analysis and appeals</li>
+            <li style="display: flex; align-items: center; gap: 13px; font-size: 15px; font-weight: 500; color: #0A2342;"><span style="flex:none;width:24px;height:24px;border-radius:7px;background:#0B6EFD;display:flex;align-items:center;justify-content:center;color:#fff;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></span>End-to-end audit trail</li>
+            <li style="display: flex; align-items: center; gap: 13px; font-size: 15px; font-weight: 500; color: #0A2342;"><span style="flex:none;width:24px;height:24px;border-radius:7px;background:#0B6EFD;display:flex;align-items:center;justify-content:center;color:#fff;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg></span>Faster reimbursement</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW CLAUDE POWERS IT -->
+  <section style="padding: 96px 32px; background: radial-gradient(120% 120% at 90% 0%, #134074 0%, #0A2342 55%, #071A33 100%); color: #fff; position: relative; overflow: hidden;">
+    <div style="position: absolute; inset: 0; background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.045) 1px, transparent 0); background-size: 36px 36px; pointer-events: none;"></div>
+    <div style="position: relative; max-width: 1200px; margin: 0 auto;">
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 56px; align-items: start;">
+        <div>
+          <div style="font-size: 13px; font-weight: 700; letter-spacing: 0.12em; color: #5BC9B8; text-transform: uppercase;">The Reasoning Engine</div>
+          <h2 style="font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 36px; line-height: 1.15; letter-spacing: -0.02em; margin: 14px 0 0;">How Claude powers the platform</h2>
+          <p style="font-size: 17px; line-height: 1.7; color: #C5D5E8; margin: 22px 0 0;">Claude serves as the reasoning engine behind the platform. It reads and reasons across physician notes, payer policies, medical necessity criteria, contracts, denial letters, coding rules, authorization requirements, invoices, and claim histories.</p>
+          <p style="font-size: 17px; line-height: 1.7; color: #C5D5E8; margin: 18px 0 0;">Rather than acting as a chatbot, Claude powers specialized AI agents that coordinate administrative decisions with <strong style="color:#fff;">explainable, auditable recommendations.</strong></p>
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+          <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 18px;" style-hover="background: rgba(255,255,255,0.1); border-color: rgba(91,201,184,0.5);"><div style="width:34px;height:34px;border-radius:9px;background:rgba(15,161,142,0.22);display:flex;align-items:center;justify-content:center;color:#5BC9B8;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"></path><circle cx="12" cy="12" r="9"></circle></svg></div><div style="font-family:'Manrope',sans-serif;font-weight:600;font-size:14.5px;margin-top:12px;">Eligibility Agent</div></div>
+          <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 18px;" style-hover="background: rgba(255,255,255,0.1); border-color: rgba(91,201,184,0.5);"><div style="width:34px;height:34px;border-radius:9px;background:rgba(11,110,253,0.22);display:flex;align-items:center;justify-content:center;color:#7FB2FF;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="2" width="8" height="4" rx="1"></rect><path d="M9 14l2 2 4-4"></path><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path></svg></div><div style="font-family:'Manrope',sans-serif;font-weight:600;font-size:14.5px;margin-top:12px;">Authorization Agent</div></div>
+          <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 18px;" style-hover="background: rgba(255,255,255,0.1); border-color: rgba(91,201,184,0.5);"><div style="width:34px;height:34px;border-radius:9px;background:rgba(15,161,142,0.22);display:flex;align-items:center;justify-content:center;color:#5BC9B8;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6"></path></svg></div><div style="font-family:'Manrope',sans-serif;font-weight:600;font-size:14.5px;margin-top:12px;">Documentation Agent</div></div>
+          <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 18px;" style-hover="background: rgba(255,255,255,0.1); border-color: rgba(91,201,184,0.5);"><div style="width:34px;height:34px;border-radius:9px;background:rgba(11,110,253,0.22);display:flex;align-items:center;justify-content:center;color:#7FB2FF;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg></div><div style="font-family:'Manrope',sans-serif;font-weight:600;font-size:14.5px;margin-top:12px;">Coding Agent</div></div>
+          <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 18px;" style-hover="background: rgba(255,255,255,0.1); border-color: rgba(91,201,184,0.5);"><div style="width:34px;height:34px;border-radius:9px;background:rgba(15,161,142,0.22);display:flex;align-items:center;justify-content:center;color:#5BC9B8;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><path d="M14 2v6h6M9 13h6M9 17h3"></path></svg></div><div style="font-family:'Manrope',sans-serif;font-weight:600;font-size:14.5px;margin-top:12px;">Claims Agent</div></div>
+          <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 18px;" style-hover="background: rgba(255,255,255,0.1); border-color: rgba(91,201,184,0.5);"><div style="width:34px;height:34px;border-radius:9px;background:rgba(11,110,253,0.22);display:flex;align-items:center;justify-content:center;color:#7FB2FF;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15-6.7L21 8M21 3v5h-5M21 12a9 9 0 0 1-15 6.7L3 16M3 21v-5h5"></path></svg></div><div style="font-family:'Manrope',sans-serif;font-weight:600;font-size:14.5px;margin-top:12px;">Appeals Agent</div></div>
+          <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 18px;" style-hover="background: rgba(255,255,255,0.1); border-color: rgba(91,201,184,0.5);"><div style="width:34px;height:34px;border-radius:9px;background:rgba(15,161,142,0.22);display:flex;align-items:center;justify-content:center;color:#5BC9B8;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg></div><div style="font-family:'Manrope',sans-serif;font-weight:600;font-size:14.5px;margin-top:12px;">Compliance Agent</div></div>
+          <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 14px; padding: 18px;" style-hover="background: rgba(255,255,255,0.1); border-color: rgba(91,201,184,0.5);"><div style="width:34px;height:34px;border-radius:9px;background:rgba(11,110,253,0.22);display:flex;align-items:center;justify-content:center;color:#7FB2FF;"><svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"></path><path d="m7 14 3-3 3 3 5-6"></path></svg></div><div style="font-family:'Manrope',sans-serif;font-weight:600;font-size:14.5px;margin-top:12px;">Executive Insights Agent</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ARCHITECTURE -->
+  <section id="architecture" style="padding: 94px 32px; background: #fff;">
+    <div style="max-width: 1100px; margin: 0 auto;">
+      <div style="text-align: center; max-width: 760px; margin: 0 auto;">
+        <div style="font-size: 13px; font-weight: 700; letter-spacing: 0.12em; color: #0FA18E; text-transform: uppercase;">Technical Architecture</div>
+        <h2 style="font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 36px; line-height: 1.15; letter-spacing: -0.02em; color: #0A2342; margin: 14px 0 0;">A shared intelligence layer that integrates, not replaces</h2>
+      </div>
+
+      <!-- Layer 1: sources -->
+      <div style="margin-top: 50px;">
+        <div style="text-align: center; font-size: 12.5px; font-weight: 700; letter-spacing: 0.08em; color: #94A3B8; text-transform: uppercase; margin-bottom: 16px;">Connected Systems</div>
+        <div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;">
+          <div style="background: #F6F8FB; border: 1px solid #E7EDF5; border-radius: 11px; padding: 14px 20px; font-size: 14.5px; font-weight: 600; color: #334155;">EHRs</div>
+          <div style="background: #F6F8FB; border: 1px solid #E7EDF5; border-radius: 11px; padding: 14px 20px; font-size: 14.5px; font-weight: 600; color: #334155;">Practice Management Systems</div>
+          <div style="background: #F6F8FB; border: 1px solid #E7EDF5; border-radius: 11px; padding: 14px 20px; font-size: 14.5px; font-weight: 600; color: #334155;">Payer Systems</div>
+          <div style="background: #F6F8FB; border: 1px solid #E7EDF5; border-radius: 11px; padding: 14px 20px; font-size: 14.5px; font-weight: 600; color: #334155;">Clearinghouses</div>
+          <div style="background: #F6F8FB; border: 1px solid #E7EDF5; border-radius: 11px; padding: 14px 20px; font-size: 14.5px; font-weight: 600; color: #334155;">Revenue Cycle Platforms</div>
+        </div>
+      </div>
+
+      <div style="display: flex; justify-content: center; margin: 22px 0;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0B6EFD" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"></path></svg></div>
+
+      <!-- Layer 2: intelligence -->
+      <div data-reveal style="background: linear-gradient(160deg, #0A2342, #11385f); border-radius: 22px; padding: 38px; color: #fff; box-shadow: 0 28px 60px -28px rgba(10,35,66,0.7);">
+        <div style="display: flex; align-items: center; gap: 12px; justify-content: center; margin-bottom: 26px;">
+          <div style="width: 40px; height: 40px; border-radius: 11px; background: linear-gradient(135deg, #0B6EFD, #0FA18E); display: flex; align-items: center; justify-content: center;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l2.5 2.5M16.5 16.5 19 19M19 5l-2.5 2.5M7.5 16.5 5 19"></path></svg></div>
+          <span style="font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 22px; letter-spacing: -0.01em;">CareOne Intelligence Layer</span>
+        </div>
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;">
+          <div style="background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 16px; font-size: 13.5px; font-weight: 500; color: #DCE7F4;">API-first integration</div>
+          <div style="background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 16px; font-size: 13.5px; font-weight: 500; color: #DCE7F4;">HL7 / FHIR / X12 readiness</div>
+          <div style="background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 16px; font-size: 13.5px; font-weight: 500; color: #DCE7F4;">RAG &amp; vector search</div>
+          <div style="background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 16px; font-size: 13.5px; font-weight: 500; color: #DCE7F4;">Healthcare knowledge graph</div>
+          <div style="background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 16px; font-size: 13.5px; font-weight: 500; color: #DCE7F4;">Agentic workflow orchestration</div>
+          <div style="background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 16px; font-size: 13.5px; font-weight: 500; color: #DCE7F4;">Audit trail &amp; human approval controls</div>
+          <div style="background: rgba(255,255,255,0.07); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 16px; font-size: 13.5px; font-weight: 500; color: #DCE7F4;">HIPAA-ready security design</div>
+          <div style="background: rgba(11,110,253,0.18); border: 1px solid rgba(127,178,255,0.4); border-radius: 12px; padding: 16px; font-size: 13.5px; font-weight: 600; color: #fff;">Claude reasoning engine</div>
+        </div>
+      </div>
+
+      <div style="display: flex; justify-content: center; margin: 22px 0;"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#0FA18E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"></path></svg></div>
+
+      <!-- Layer 3: outcomes -->
+      <div>
+        <div style="text-align: center; font-size: 12.5px; font-weight: 700; letter-spacing: 0.08em; color: #94A3B8; text-transform: uppercase; margin-bottom: 16px;">Outcomes</div>
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
+          <div style="background: #EAF8F1; border: 1px solid #CDEBDF; border-radius: 12px; padding: 16px 18px; font-size: 14.5px; font-weight: 600; color: #0A5D4E; display:flex; align-items:center; gap:10px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0FA18E" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Faster authorization</div>
+          <div style="background: #EAF8F1; border: 1px solid #CDEBDF; border-radius: 12px; padding: 16px 18px; font-size: 14.5px; font-weight: 600; color: #0A5D4E; display:flex; align-items:center; gap:10px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0FA18E" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Cleaner claims</div>
+          <div style="background: #EAF8F1; border: 1px solid #CDEBDF; border-radius: 12px; padding: 16px 18px; font-size: 14.5px; font-weight: 600; color: #0A5D4E; display:flex; align-items:center; gap:10px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0FA18E" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Reduced denials</div>
+          <div style="background: #EAF8F1; border: 1px solid #CDEBDF; border-radius: 12px; padding: 16px 18px; font-size: 14.5px; font-weight: 600; color: #0A5D4E; display:flex; align-items:center; gap:10px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0FA18E" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Lower administrative cost</div>
+          <div style="background: #EAF8F1; border: 1px solid #CDEBDF; border-radius: 12px; padding: 16px 18px; font-size: 14.5px; font-weight: 600; color: #0A5D4E; display:flex; align-items:center; gap:10px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0FA18E" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Real-time visibility</div>
+          <div style="background: #EAF8F1; border: 1px solid #CDEBDF; border-radius: 12px; padding: 16px 18px; font-size: 14.5px; font-weight: 600; color: #0A5D4E; display:flex; align-items:center; gap:10px;"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#0FA18E" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>Improved provider-payer collaboration</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MVP -->
+  <section style="padding: 90px 32px; background: #F6F8FB; border-top: 1px solid #EEF2F7; border-bottom: 1px solid #EEF2F7;">
+    <div style="max-width: 1100px; margin: 0 auto;">
+      <div data-reveal style="background: #fff; border: 1px solid #E7EDF5; border-radius: 24px; overflow: hidden; box-shadow: 0 24px 56px -30px rgba(10,35,66,0.4); display: grid; grid-template-columns: 1.15fr 0.85fr;">
+        <div style="padding: 46px;">
+          <div style="display: inline-flex; align-items: center; gap: 8px; padding: 6px 13px; border-radius: 100px; background: #EAF8F1; color: #0A5D4E; font-size: 12.5px; font-weight: 700; letter-spacing: 0.03em;">FIRST 90-DAY MVP</div>
+          <h2 style="font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 31px; line-height: 1.18; letter-spacing: -0.02em; color: #0A2342; margin: 18px 0 0;">Prior Authorization + Claim Validation</h2>
+          <p style="font-size: 16px; line-height: 1.65; color: #475569; margin: 18px 0 0;">The first release focuses on two of healthcare's most painful administrative bottlenecks: prior authorization and pre-submission claim validation. Providers submit authorization requests or claims through existing workflows while the platform verifies eligibility, reviews payer requirements, checks documentation, validates coding, predicts denial risk, and recommends the next best action.</p>
+          <p style="font-size: 16px; line-height: 1.65; color: #475569; margin: 16px 0 0;">This creates fast ROI by reducing manual review, minimizing preventable denials, accelerating reimbursement, and giving revenue cycle teams a single AI workspace for every claim.</p>
+        </div>
+        <div style="background: linear-gradient(160deg, #0A2342, #11385f); padding: 46px; color: #fff; display: flex; flex-direction: column; justify-content: center; gap: 20px;">
+          <div style="font-size: 12.5px; font-weight: 700; letter-spacing: 0.08em; color: #7FB2FF; text-transform: uppercase;">MVP delivers</div>
+          <div style="display: flex; align-items: flex-start; gap: 13px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5BC9B8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:1px;"><path d="M20 6 9 17l-5-5"></path></svg><span style="font-size:15px;line-height:1.45;color:#DCE7F4;">Eligibility verified in real time</span></div>
+          <div style="display: flex; align-items: flex-start; gap: 13px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5BC9B8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:1px;"><path d="M20 6 9 17l-5-5"></path></svg><span style="font-size:15px;line-height:1.45;color:#DCE7F4;">Payer requirements checked automatically</span></div>
+          <div style="display: flex; align-items: flex-start; gap: 13px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5BC9B8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:1px;"><path d="M20 6 9 17l-5-5"></path></svg><span style="font-size:15px;line-height:1.45;color:#DCE7F4;">Coding validated before submission</span></div>
+          <div style="display: flex; align-items: flex-start; gap: 13px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5BC9B8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:1px;"><path d="M20 6 9 17l-5-5"></path></svg><span style="font-size:15px;line-height:1.45;color:#DCE7F4;">Denial risk predicted per claim</span></div>
+          <div style="display: flex; align-items: flex-start; gap: 13px;"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#5BC9B8" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex:none;margin-top:1px;"><path d="M20 6 9 17l-5-5"></path></svg><span style="font-size:15px;line-height:1.45;color:#DCE7F4;">Next best action recommended</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROADMAP -->
+  <section id="roadmap" style="padding: 94px 32px; background: #fff;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <div style="text-align: center; max-width: 720px; margin: 0 auto;">
+        <div style="font-size: 13px; font-weight: 700; letter-spacing: 0.12em; color: #0FA18E; text-transform: uppercase;">12-Month Roadmap</div>
+        <h2 style="font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 36px; line-height: 1.15; letter-spacing: -0.02em; color: #0A2342; margin: 14px 0 0;">A staged path from MVP to a collaboration network</h2>
+      </div>
+      <div style="position: relative; margin-top: 50px; display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
+        <div style="position: absolute; top: 26px; left: 8%; right: 8%; height: 2px; background: linear-gradient(90deg, #0B6EFD, #0FA18E);"></div>
+        <div data-reveal style="position: relative;">
+          <div style="width: 52px; height: 52px; border-radius: 14px; background: #0B6EFD; color: #fff; display: flex; align-items: center; justify-content: center; font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 17px; box-shadow: 0 10px 24px -8px rgba(11,110,253,0.6); position: relative; z-index: 1;">Q1</div>
+          <div style="margin-top: 18px; background: #F6F8FB; border: 1px solid #E7EDF5; border-radius: 16px; padding: 22px;">
+            <p style="font-size: 14.5px; line-height: 1.6; color: #475569; margin: 0;">Eligibility, benefits, prior authorization, and claim validation MVP.</p>
+          </div>
+        </div>
+        <div data-reveal style="position: relative;">
+          <div style="width: 52px; height: 52px; border-radius: 14px; background: #0C7BD6; color: #fff; display: flex; align-items: center; justify-content: center; font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 17px; box-shadow: 0 10px 24px -8px rgba(12,123,214,0.6); position: relative; z-index: 1;">Q2</div>
+          <div style="margin-top: 18px; background: #F6F8FB; border: 1px solid #E7EDF5; border-radius: 16px; padding: 22px;">
+            <p style="font-size: 14.5px; line-height: 1.6; color: #475569; margin: 0;">Denials management, appeals automation, coding optimization, and EHR/payer integrations.</p>
+          </div>
+        </div>
+        <div data-reveal style="position: relative;">
+          <div style="width: 52px; height: 52px; border-radius: 14px; background: #0D8AB8; color: #fff; display: flex; align-items: center; justify-content: center; font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 17px; box-shadow: 0 10px 24px -8px rgba(13,138,184,0.6); position: relative; z-index: 1;">Q3</div>
+          <div style="margin-top: 18px; background: #F6F8FB; border: 1px solid #E7EDF5; border-radius: 16px; padding: 22px;">
+            <p style="font-size: 14.5px; line-height: 1.6; color: #475569; margin: 0;">Predictive reimbursement analytics, payer contract intelligence, payment integrity, fraud detection, and operational dashboards.</p>
+          </div>
+        </div>
+        <div data-reveal style="position: relative;">
+          <div style="width: 52px; height: 52px; border-radius: 14px; background: #0FA18E; color: #fff; display: flex; align-items: center; justify-content: center; font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 17px; box-shadow: 0 10px 24px -8px rgba(15,161,142,0.6); position: relative; z-index: 1;">Q4</div>
+          <div style="margin-top: 18px; background: #F6F8FB; border: 1px solid #E7EDF5; border-radius: 16px; padding: 22px;">
+            <p style="font-size: 14.5px; line-height: 1.6; color: #475569; margin: 0;">Provider-payer collaboration network with AI agents orchestrating routine administrative workflows under human oversight.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPANSION -->
+  <section style="padding: 94px 32px; background: #0A2342; color: #fff; position: relative; overflow: hidden;">
+    <div style="position: absolute; top: -120px; left: -100px; width: 460px; height: 460px; background: radial-gradient(circle, rgba(11,110,253,0.28), transparent 65%); pointer-events: none;"></div>
+    <div style="position: relative; max-width: 1100px; margin: 0 auto;">
+      <div style="text-align: center; max-width: 760px; margin: 0 auto;">
+        <div style="font-size: 13px; font-weight: 700; letter-spacing: 0.12em; color: #5BC9B8; text-transform: uppercase;">Expansion Potential</div>
+        <h2 style="font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 36px; line-height: 1.15; letter-spacing: -0.02em; margin: 14px 0 0;">A reusable orchestration layer, not a single workflow</h2>
+        <p style="font-size: 17px; line-height: 1.65; color: #C5D5E8; margin: 18px 0 0;">The platform is not limited to one workflow. It is a reusable AI orchestration layer for complex, document-heavy, multi-party administrative processes.</p>
+      </div>
+      <div style="display: grid; grid-template-columns: 0.8fr 1.2fr; gap: 28px; margin-top: 46px; align-items: stretch;">
+        <div style="background: linear-gradient(160deg, #0B6EFD, #0FA18E); border-radius: 20px; padding: 32px; display: flex; flex-direction: column; justify-content: center;">
+          <div style="font-size: 12.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,0.85);">Initial Focus</div>
+          <div style="font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 23px; line-height: 1.3; margin-top: 12px;">Healthcare administration &amp; reimbursement automation</div>
+        </div>
+        <div>
+          <div style="font-size: 12.5px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: #93A8C4; margin-bottom: 16px;">Future Expansion</div>
+          <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px;">
+            <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 16px; font-size: 13.5px; font-weight: 500; color: #DCE7F4;" style-hover="background: rgba(255,255,255,0.12);">Insurance claims orchestration</div>
+            <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 16px; font-size: 13.5px; font-weight: 500; color: #DCE7F4;" style-hover="background: rgba(255,255,255,0.12);">Workers' compensation administration</div>
+            <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 16px; font-size: 13.5px; font-weight: 500; color: #DCE7F4;" style-hover="background: rgba(255,255,255,0.12);">Government healthcare reimbursement</div>
+            <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 16px; font-size: 13.5px; font-weight: 500; color: #DCE7F4;" style-hover="background: rgba(255,255,255,0.12);">Provider credentialing</div>
+            <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 16px; font-size: 13.5px; font-weight: 500; color: #DCE7F4;" style-hover="background: rgba(255,255,255,0.12);">Pharmacy benefit workflows</div>
+            <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 16px; font-size: 13.5px; font-weight: 500; color: #DCE7F4;" style-hover="background: rgba(255,255,255,0.12);">Value-based care administration</div>
+            <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 16px; font-size: 13.5px; font-weight: 500; color: #DCE7F4;" style-hover="background: rgba(255,255,255,0.12);">Public benefits eligibility</div>
+            <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 16px; font-size: 13.5px; font-weight: 500; color: #DCE7F4;" style-hover="background: rgba(255,255,255,0.12);">Disaster recovery reimbursement</div>
+            <div style="background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.12); border-radius: 12px; padding: 16px; font-size: 13.5px; font-weight: 500; color: #DCE7F4;" style-hover="background: rgba(255,255,255,0.12);">Multi-party claims processing</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INDUSTRIES -->
+  <section style="padding: 94px 32px; background: #fff;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <div style="text-align: center; max-width: 720px; margin: 0 auto;">
+        <div style="font-size: 13px; font-weight: 700; letter-spacing: 0.12em; color: #0FA18E; text-transform: uppercase;">Who It Serves</div>
+        <h2 style="font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 36px; line-height: 1.15; letter-spacing: -0.02em; color: #0A2342; margin: 14px 0 0;">Built for every party in the reimbursement lifecycle</h2>
+      </div>
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 46px;">
+        <div data-reveal style="display: flex; align-items: center; gap: 16px; background: #fff; border: 1px solid #E7EDF5; border-radius: 16px; padding: 22px 24px;" style-hover="border-color:#CFE0F7; box-shadow:0 14px 32px -22px rgba(10,35,66,0.4); transform: translateY(-2px);"><div style="width:44px;height:44px;flex:none;border-radius:12px;background:#EAF4FF;display:flex;align-items:center;justify-content:center;color:#0B6EFD;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V7l8-4v18M19 21V11l-6-3"></path><path d="M9 9v.01M9 12v.01M9 15v.01"></path></svg></div><span style="font-family:'Manrope',sans-serif;font-weight:600;font-size:16px;color:#0A2342;">Hospitals &amp; Health Systems</span></div>
+        <div data-reveal style="display: flex; align-items: center; gap: 16px; background: #fff; border: 1px solid #E7EDF5; border-radius: 16px; padding: 22px 24px;" style-hover="border-color:#CFE0F7; box-shadow:0 14px 32px -22px rgba(10,35,66,0.4); transform: translateY(-2px);"><div style="width:44px;height:44px;flex:none;border-radius:12px;background:#EAF8F1;display:flex;align-items:center;justify-content:center;color:#0FA18E;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87M16 3.13A4 4 0 0 1 16 11"></path></svg></div><span style="font-family:'Manrope',sans-serif;font-weight:600;font-size:16px;color:#0A2342;">Physician Groups</span></div>
+        <div data-reveal style="display: flex; align-items: center; gap: 16px; background: #fff; border: 1px solid #E7EDF5; border-radius: 16px; padding: 22px 24px;" style-hover="border-color:#CFE0F7; box-shadow:0 14px 32px -22px rgba(10,35,66,0.4); transform: translateY(-2px);"><div style="width:44px;height:44px;flex:none;border-radius:12px;background:#EAF4FF;display:flex;align-items:center;justify-content:center;color:#0B6EFD;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2h8l4 10-8 10L4 12z"></path><path d="M12 9v6M9 12h6"></path></svg></div><span style="font-family:'Manrope',sans-serif;font-weight:600;font-size:16px;color:#0A2342;">Ambulatory Surgery Centers</span></div>
+        <div data-reveal style="display: flex; align-items: center; gap: 16px; background: #fff; border: 1px solid #E7EDF5; border-radius: 16px; padding: 22px 24px;" style-hover="border-color:#CFE0F7; box-shadow:0 14px 32px -22px rgba(10,35,66,0.4); transform: translateY(-2px);"><div style="width:44px;height:44px;flex:none;border-radius:12px;background:#EAF8F1;display:flex;align-items:center;justify-content:center;color:#0FA18E;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"></circle><circle cx="12" cy="12" r="3"></circle></svg></div><span style="font-family:'Manrope',sans-serif;font-weight:600;font-size:16px;color:#0A2342;">Imaging Centers</span></div>
+        <div data-reveal style="display: flex; align-items: center; gap: 16px; background: #fff; border: 1px solid #E7EDF5; border-radius: 16px; padding: 22px 24px;" style-hover="border-color:#CFE0F7; box-shadow:0 14px 32px -22px rgba(10,35,66,0.4); transform: translateY(-2px);"><div style="width:44px;height:44px;flex:none;border-radius:12px;background:#EAF4FF;display:flex;align-items:center;justify-content:center;color:#0B6EFD;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-8-4.5-8-11a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 6.5-8 11-8 11z"></path></svg></div><span style="font-family:'Manrope',sans-serif;font-weight:600;font-size:16px;color:#0A2342;">Behavioral Health Providers</span></div>
+        <div data-reveal style="display: flex; align-items: center; gap: 16px; background: #fff; border: 1px solid #E7EDF5; border-radius: 16px; padding: 22px 24px;" style-hover="border-color:#CFE0F7; box-shadow:0 14px 32px -22px rgba(10,35,66,0.4); transform: translateY(-2px);"><div style="width:44px;height:44px;flex:none;border-radius:12px;background:#EAF8F1;display:flex;align-items:center;justify-content:center;color:#0FA18E;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"></path><path d="m7 14 3-3 3 3 5-6"></path></svg></div><span style="font-family:'Manrope',sans-serif;font-weight:600;font-size:16px;color:#0A2342;">Revenue Cycle Management Companies</span></div>
+        <div data-reveal style="display: flex; align-items: center; gap: 16px; background: #fff; border: 1px solid #E7EDF5; border-radius: 16px; padding: 22px 24px;" style-hover="border-color:#CFE0F7; box-shadow:0 14px 32px -22px rgba(10,35,66,0.4); transform: translateY(-2px);"><div style="width:44px;height:44px;flex:none;border-radius:12px;background:#EAF4FF;display:flex;align-items:center;justify-content:center;color:#0B6EFD;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"></rect><path d="M2 10h20"></path></svg></div><span style="font-family:'Manrope',sans-serif;font-weight:600;font-size:16px;color:#0A2342;">Commercial Payers</span></div>
+        <div data-reveal style="display: flex; align-items: center; gap: 16px; background: #fff; border: 1px solid #E7EDF5; border-radius: 16px; padding: 22px 24px;" style-hover="border-color:#CFE0F7; box-shadow:0 14px 32px -22px rgba(10,35,66,0.4); transform: translateY(-2px);"><div style="width:44px;height:44px;flex:none;border-radius:12px;background:#EAF8F1;display:flex;align-items:center;justify-content:center;color:#0FA18E;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 6v6c0 5 3.5 8 8 10 4.5-2 8-5 8-10V6z"></path><path d="m9 12 2 2 4-4"></path></svg></div><span style="font-family:'Manrope',sans-serif;font-weight:600;font-size:16px;color:#0A2342;">Medicare Advantage / Medicaid Managed Care</span></div>
+        <div data-reveal style="display: flex; align-items: center; gap: 16px; background: #fff; border: 1px solid #E7EDF5; border-radius: 16px; padding: 22px 24px;" style-hover="border-color:#CFE0F7; box-shadow:0 14px 32px -22px rgba(10,35,66,0.4); transform: translateY(-2px);"><div style="width:44px;height:44px;flex:none;border-radius:12px;background:#EAF4FF;display:flex;align-items:center;justify-content:center;color:#0B6EFD;"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V10l7-5 7 5v11"></path><path d="M9 21v-6h6v6"></path></svg></div><span style="font-family:'Manrope',sans-serif;font-weight:600;font-size:16px;color:#0A2342;">Government Healthcare Agencies</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section id="cta" style="padding: 30px 32px 96px; background: #fff;">
+    <div style="max-width: 1100px; margin: 0 auto;">
+      <div style="position: relative; overflow: hidden; border-radius: 28px; background: radial-gradient(120% 140% at 85% 0%, #134074 0%, #0A2342 55%, #071A33 100%); padding: 72px 56px; text-align: center; color: #fff;">
+        <div style="position: absolute; inset: 0; background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.05) 1px, transparent 0); background-size: 34px 34px; pointer-events: none;"></div>
+        <div style="position: absolute; top: -100px; right: -80px; width: 380px; height: 380px; background: radial-gradient(circle, rgba(15,161,142,0.32), transparent 65%); pointer-events: none;"></div>
+        <div style="position: relative;">
+          <h2 style="font-family: 'Manrope', sans-serif; font-weight: 800; font-size: 42px; line-height: 1.12; letter-spacing: -0.025em; margin: 0 auto; max-width: 760px; text-wrap: balance;">Accelerate Healthcare Administration Through One Intelligent Layer</h2>
+          <p style="font-size: 18px; line-height: 1.6; color: #C5D5E8; margin: 22px auto 0; max-width: 700px;">CareOne helps organizations move from fragmented administrative workflows to real-time, AI-orchestrated healthcare operations that can scale across additional claims, reimbursement, and multi-party process automation use cases.</p>
+          <a href="#platform" style="display: inline-flex; align-items: center; gap: 10px; background: #0B6EFD; color: #fff; font-weight: 600; font-size: 16px; padding: 16px 30px; border-radius: 12px; text-decoration: none; margin-top: 36px; box-shadow: 0 16px 36px -10px rgba(11,110,253,0.6);" style-hover="background:#2c82ff; transform: translateY(-1px);">Explore the Platform
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m13 6 6 6-6 6"></path></svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer style="background: #071A33; color: #93A8C4; padding: 52px 32px 40px;">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; flex-direction: column; gap: 32px;">
+      <!-- top row -->
+      <div style="display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap;">
+        <div style="display: flex; align-items: center; gap: 11px;">
+          <div style="width: 28px; height: 28px; border-radius: 8px; background: linear-gradient(135deg, #0B6EFD, #0FA18E); display: flex; align-items: center; justify-content: center;"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 4 7v10l8 5 8-5V7z"></path><path d="m4 7 8 5 8-5"></path></svg></div>
+          <span style="font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 15px; color: #fff;">CareOne</span>
+        </div>
+        <div style="display: flex; align-items: center; gap: 12px;">
+          <span style="font-size: 12.5px; font-weight: 500; color: #4E6580;">An initiative by</span>
+          <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA+gAAAETCAYAAAClaSwXAAAQAElEQVR4AezdXZLctnvvcfZUrmRXTlW2IO3jL8m+OXs4VWcH5+JsYKQN5CI7SFX2kJtYkvchbSFVScW+Sg2DHzyc4fSwu/kCPHgAfF2Gp6ebxMsHIIGH5LTvBv5BAAEEEEAAAQQQQAABBBBAAIHiApkD9OLtowIIIIAAAggggAACCCCAAAIIVCFQd4BeBTGVRAABBBBAAAEEEEAAAQQQQOC2AAH6FSM+QgABBBBAAAEEEEAAAQQQQMBKgADdSvp1ObyDAAIIIIAAAggggAACCCCAwJMAAfoTRWsvaA8CCCCAAAIIIIAAAggggEBNAgToNfWWp7pSFwQQQAABBBBAAAEEEEAAgaQCBOhJOckslQD5IIAAAggggAACCCCAAAK9CRCg99bjtFcCJAQQQAABBBBAAAEEEEDAnQABursuoUL1C9ACBBBAAAEEEEAAAQQQQGC7wOoA/c3bjyPJh8FPb3/5OqU37z5+Ok/bhwF7VCVAZRFAAAEEEEAAAQQQQKBJgdUBepOtr7RR4zC+Hx/TMA73w1maLqQoiJ+C95/f/fp+4B8EVgiwCQIIIIAAAggggAACCJQRIEAv425SqoL4KXh/GB++KnCfB+0mlaAQBF4K8BsCCCCAAAIIIIAAAghcECBAvwDT6tvzoH0esHOHvdUe761dtBcBBBBAAAEEEEAAgXoFCNDr7bskNZ8C9ukOux6JT5IxmSDQogBtQgABBBBAAAEEEEAgowABekbcKrMeh/v5nfUq20ClEahUgGojgAACCCCAAAII9C1AgN53/19s/XRnXcE6d9UvMvEBAjUJUFcEEEAAAQQQQAAB5wIE6M47yEX1Hu+qE6i76A0qgYBTAaqFAAIIIIAAAgggcFSAAP2oYE/7E6j31Nu0FQFfAtQGAQQQQAABBBDoQIAAvYNOTt5EAvXkpGSIAAJlBSgdAQQQQAABBBDwIECA7qEXaq0DgXqtPUe9EUDAVoDSEEAAAQQQQACBVQIE6KuY2OiqAIH6VR4+RAABBPIKkDsCCCCAAAIItCJAgN5KT3pohwL1dx8/eagKdUAAAQQQSCRANggggAACCCBgJkCAbkbdSUEK0t9+HPnG9076m2YigAACBwXYHQEEEEAAAQSeBQjQny14lVJAgTp301OKkhcCCCCAwHYB9kAAAQQQQKAqAQL0qrqrssoqSOduemWdRnURQAABBNYLsCUCCCCAAAJpBQjQ03qS25KAAnXupi/J8B4CCCCAAAKXBfgEAQQQQKA7AQL07rq8UIMJ0gvBUywCCCCAAALLAryLAAIIIOBPgADdX5+0W6MQpP/09pev7TaQliGAAAIIIIDAowA/EEAAAQR2CBCg70Bjl/0C4zC+V5D+87tf3+/PhT0RQAABBBBAoG8BWo8AAgi0KUCA3ma/um6VgvSH8eErQbrrbqJyCCCAAAII9CtAyxFAAIFCAgToheApdhgUpL/hy+MYCggggAACCCDQmQDNRQABBC4JEKBfkuF9G4FxuCdIt6GmFAQQQAABBBDoQoBGIoBAxQIE6BV3XjNVJ0hvpitpCAIIIIAAAgi0LkD7EEAgpwABek5d8l4vQJC+3ootEUAAAQQQQACBVgVoFwKdCxCgdz4AXDU/BOl8cZyrHqEyCCCAAAIIIIBAUwI0BgHvAgTo3nuos/rpi+MI0jvrdJqLAAIIIIAAAgi0IUArEDgsQIB+mJAMUguM43ifOk/yQwABBBBAAAEEEECgbgFq34MAAXoPvVxZG8dhfP/T21++VlZtqosAAggggAACCCCAQL0C1NyFAAG6i26gEucCBOnnIvyOAAIIIIAAAggggEC9AtR8nQAB+jontiogoCD9zbuPnwoUTZEIIIAAAggggAACCCBQj0AzNSVAb6YrG23IONwTpDfatzQLAQQQQAABBBBAAIEqBOwqSYBuZ01JewVCkM43u+/FYz8EEEAAAQQQQAABBBBwLTCrHAH6DIOXfgX4Zne/fUPNEEAAAQQQQAABBBBAII1AjgA9Tc3IBYGZwDiM73nUfQbCSwQQQAABBBBAAAEEEGhOYHWA/uePLycfiXrcne4+3D2m4TR8HkI6DadvzY3O8waNwz2Pup+j8DsCCCCAAAIIIIAAAgi0IrA6QG+lwTfbUcEG//X9375N6c/vXz4p/fHjtw+6gKLAveWAnUfdKxigVBEBBBBAAAEEEEAAAQR2CRCg72Lbv1PuPRW4zwN2Besx5S7YKH896s5ddCNsikEAAQQQQAABBBBAAAFTAQJ0U+7shb0qQMF6TD++nFoJ1B/Gh6+vGsobCCCAAAIIIIAAAggggEDlAgTolXfgluofD9S3lJZ325/e/kKQnpeY3BFAAAEEEEAAAQQQQMBYgADdGNxDcW4D9Q04POq+AYtNEUAAAQQQQAABBBBAoAoBAvQquilPJWsP1Ld+YVweRXJFAAEEEEAAAQQQQAABBNIIEKCncaw6FwXqNf59urO76FWPASqPAAIIIIAAAggggAAC5QUI0Mv3gYsaKEjX/6attkC9n7voLoYJlUAAAQQQQAABBBBAAIGMAgToGXFrzFqBek1BOnfRE40yskEAAQQQQAABBBBAAIHiAgToxbvAXwWqC9LH8d6fIjWaC/AaAQQQQAABBBBAAAEEbgsQoN826nILBel3p7sPNTSeu+g19FLWOpI5AggggAACCCCAAAJNCBCgN9GNeRrxX9//7Vs1QTp30fMMAnIdhgEEBBBAAAEEEEAAAQRsBAjQbZyrLaWWIJ276NuH2M/vfn3/5t3HTy0ntVFpu47hHhSFQAIBq+M4QVVvZqFj1qI9KudmZdgAAQQQQAABYwECdGPwGourJUh/GB7e1+hbqs7xG/DH4X5oOD2MD18fQnrz9uOo9NPbX77OF/49LNAH/ulDwOo4NtCM53KL9hi0hSIQQAABBBDYKkCAvlWs0+0VpLv/dnct6DrtH5q9TkBPWswvSDwF749PEhCwr3OcbcVLBBBAAAEEEEAAgYQCBOgJMVvPSl8c5z1IJ8BqfRRmap8u7oR0HrBnKo1sVwuwIQIIIIAAAggg0JcAAXpf/X24td6D9PjY9uFWkkH3AiFY1512PRavR+K792gVgHYhgAACCCCAAALOBAjQnXVIDdVRkH4aTt881jU+wuyxYtSpXoFxuJ8CdYL1eruxRM0pEwEEEEAAAQQQ2CpAgL5VjO2jwOl0+hxfOPwPj7k77JQWqhQC9XhX/d3HTy00hzZUL0ADEEAAAQQQQKBBAQL0BjvVokn60riT17vo43hvYUAZnQqEQH26o96pAM3uQoBGIoAAAggggEAJAQL0EuqNlPnHj98+eGzKOIz879Y8dkxrdSJQb61HaY+lAGUhgAACCCCAwKIAAfoiC2+uFbg73bkM0nnMfW0Pst1hAQXqPPZ+mJEMEEgpQF4IbBHQ94tYpC11YlsEEOhXgAC9375P0nKvj7rzbe5JupdM1gooSH/7ceTC0FowtkOgagEq35BAPG+Hc7i+YyRnOo2nvzXERlMQQCCjAAF6Rtxesj45/sK4XvqAdvoQeBgfvuoujI/aUAsEEKhTgFojgAACCPQsQIDec+8narvHu+j8HXqiziWb7QLhTgxB+nY29kAAASMBikEAAQQQcC1AgO66e+qp3Hgaf/dW2/jYmrdKUZ8+BAjS++hnWokAAq8EeAMBBBBA4JgAAfoxP/Z+FPjz+5dPjy/5gQACEiBIlwIJAQQQSClAXggggEDzAgTozXexXQNPw+mbXWm3S+KL4m4bsUVmgXG453H3zMZkjwACCCQTICMEEECgvAABevk+aKYGfFlcM11JQ1IKEKSn1CQvBBBAoF4Bao4AAgisECBAX4HEJusEvH1Z3DiM79fVnK0QyCwQgnS+EyGzMdkjgAACnQvQfAQQaEOAAL2NfqQVFwQIii7A8La5AH9yYU5OgQgggAAC6QTICQEEjAQI0I2geymGx9x76WnauVVAT3Tw9+hb1dgeAQQQQKAPAVqJAAKTAAH6JMHPJAJ6zD1JRokyeRgeeMw9kSXZJBDgUfcEiGSBAAIIIIDARgE2R6AiAQL0ijqrlqqeHH2b+2k8/a0WN+rZhwCPuvfRz7QSAQQQQKAfAVqKQEqB1QH6m7cf/zuk0UP6h3f/++9TIpAXAgjkF9CFm9wpfyuOl6BH3fluhOOO5IAAAggggEAnAjSzM4HVAXpnLjT3gMB4Gn8/sDu7NiigwPyPH799yJ3+/PHlpHR3uvswnIbPQ0gq2xspd9G99Qj1QQABBBBAoFcB2u1NgADdW480UJ+74e5bA82gCRUL6LsQ/vz+5ZOSLgooaFew7qVJ3EX30hPUAwEEEEAAAQSyCpD5ZoG7zXuwAwIVCSgQqqi6VDWjgIL1p0A93FnPWNSqrLmLvoqJjRBAAAEEEEAAgYsCLX5AgN5irxZuk+5eFq4CxSNwUSAG6uHueuk76rp4xN+iX+wmPkAAAQQQQAABBEoLFCmfAL0IO4UigEBpAQXq+lt1j3+jXtqG8hFAAAEEEEAAAQRyCyznT4C+7MK7CCDQgYCe9jidTp9LNZXH3EvJUy4CCCCAAAIIIOBTIFmA7rN51AqBYeAxYkbBNQEF6bqTfm2bXJ/xmHsuWfJFAAEEEEAAAQTqFKglQK9Tt+Na89hwx51fYdNLBukVclFlBBBAAAEEEEAAgUwCBOgRlv+kFtCdwdR5kh8COQUUpJe4sMRj7jl7lbwRQAABBBBAAIG6BAjQLfqLMooKKPAqWgEKr0bgVODv0bmYVc3woKIIIIAAAggggEB2AQL07MT5C6AEBBBII6CLOSXuorf0PQlqi9Kbdx8//fT2l6/n6c3bj6PSq/fD9tpH+6bpTXJBoD8BHT9KOpbOj7Hpdx1/StPv00/tM0/Kpz9BWuxRQGNRSeNzGq/znxrPU5q/r9faZ0rKw2P7qNN6AfWh0tSn6uN5mt6ffmrbKa0vpfyWBOjl+8B7DagfAl0JlLiLXjOwJr5pctQC6WF8+PoQ0jAO93o64DxNbX31fthe+2hf5aOkfDXJqoxpv5Q/la9FSlln8kJgEpjGbjxOHi986fhR0rF0foxNv0/7T79PP7XPPCmf+XGoY3Ha1/PPyWXtz4fh4b1Ve9bWac92Vm3IXY7arrGmca2kMaixqKTxOY3X+c95nebv67X2mZLyUH4xPV4UVlnz/Vt9LVeLlNJvqu80DtRv6kOlqU/Vx/M0vT/91LZT0v4xr9D3yjtlXVPnRYCeWpT8NgqwOQIIWC4QU2hrYouTXAgKNPFNk2OKvOd5KF9NsipDE6sWUkrzbfa+VhuUb+7Edwzs7SH2WxLQuJ0fexq/8ThZ2jjRezH/xwto8TgMx72OQ6VERSTNRudTuaxNOsckrcCFzOS4tk5bt6v9PHM+rtUn8lK6wHn87ccxrbLiuA5Bm9cxfbyxw6AxsnVc7dn+aF3Px4LqkHIcxLxC3yvfeb+r3KN1T7k/dAoxngAAEABJREFUAXpKTfKKAp4G+Wk4fYuV4j8IrBQo8Zj7aTz9bWX1im2m43oeGMRJzro243A/hDRNqgP/INCBgItj79w5HIcci+co/L5WQGNaqficMq/wbEzHeoWAff4xr/MKTONBgbPp+uKx31Wup7UFAXre8dZl7rp63UvDaScCrQsUmzRvwYZJ1dNkequ6fI7AVgG3x955Q2bHoup8/jG/IzAJaHwo+FUwpGQaiE2VWPEz1ms2rlfswiY7BfTUguZyN+PBSb8ToO8cUOyGgIEARRQSGE/j74WKdlPsfCEVFytuanZWESeT6Vmt+BWB3QLVHHvnLQzHohbZWnCff8TvfQtUO6bVbWFcK4DUuFbSW6TjArKUq57EOZ5bhhxCv+tikuqZIfebWRKg3yRig60Cpwoe193apja3p1WXBO6Gu2+XPsvxvqcAuNqF1DjcayJV/XP0EXkikFtAY1cLQgW5ns4Jm9utY/Hx79Q378sOTQk0M6bVK2FcK5jUPKOkt0jbBaYxIcvte9vuEc/Dod/V30qWpd9ZFkZZfQjEAe2kqdwJLdgRFF2dgCagqoODMJGq/mpHdfhUuGsBjVmNXU/z5+EOCcej2nU4HzKoUqCJi01L8mFcK7hkbC/hXH9PZlWe5wr0OQH69bHEpxsFdGVs4y5sjsAuAXZKK6DFlBYdaXMtlFuYTLUQKFQ6xSKwWkBzZlPH3nnLdSxyN/1cpenfNab16HJTF5uWeoyxvaSy+J7GRBPnOfW50ZcHEqAvDiXe3Cvg7QvirB9V3uvGfu4EuqnQNHE2t5jSRBoCA7Wvm86koVUJaGxWeTdpj7KOR6OF7Z7qsc9xAY1nBWEa08dzqygHxvbVztK40JhoZo1h1N8E6FeHFR9uFfD29+f6X2ZtbQPbI5BfwEcJusvc1MS5wKr2qZ0LH/EWAsUEpkVrsQqUKNhoYVuiab2XqXOszrXNBGFbO1RjO1wQlsPWXVvevtnzXOhvXYxS+3L1HwF6LtlO8/V0cj7x/0DvdBTS7GEFQVxIhElmxab1bxLaGdtbf0toQQMCGosKZhpoyvYmcCxuN3O+h8ZzM38eddSa8f0kqHHR8nlO8Y7ap3Y+NTrhCwL0hJi9Z5VrkO515Qvi9sqxn7c/1UjdI/FYDQuJvflWuV9ob2x3lZWn0q0IxDsuYSy20p5d7Qjt51jcJedup9iPoT/dVaxkhYJHdClZh8Jld3WeC/0d25vYnAA9MWjP2Xl7vL3nvqDtdQlYPu0RFw5hQnEslK9qod2x/flKIGcErgrojsvVDXr5kGOx+p7WI77cOb/QjWF8R58LH7f+dm/nuXEc71P3KQF6atFO89OiV497eGo+XxDnqTeoiwcBHafdL6jG4T7H1W4P/UsdfAv0vGBf7JkQxMRz0uKHvOlZQGPZ25rPm5d89G32vc03Ghve+iJ3fdTXqdtNgJ6718i/mABfEFeMvv6Cw8LRshEWf44RF8LG7bI03FJW1qv7WyrCtt0I6PjTIq6bBq9taDgn9RbArKXxup0CEcby+t7JcXd1fen2W/Y6NtRunedTiROgp5LsPZ8wyfZOQPsR8CoQF8Acoy+6p9Yg/UUj+KUKAY6/693UWwBzXcP3pwTn2/tHgZvctu/JHtUJhHVWPN8nqDgBegLE3rNIecUomeVp+JwsLzLqSqDEeM795xgEo10N4SONZd8MAg/Dw/sM2TaTpQKYVIvaZlAcNkRzo/rKYdXcV0lu8nNfUSp4WCDVeosA/XBXkEH3f9PKEEDgoEDOP8dgUXCwc9g9oUB/WcXjL9xV6a/l21rMXfRtXtZbM44TiIfzQHRMkBVZ+BZI8cQEAbrvPnZfO68nmz+/f/nkHo8KuhOI4zlMou4qtrNCrbVnJwO79SLgsZ0NnU9y8o7D+D6er3IWQt67BGK/MI532b3aKThGz1cf8EZLAjqfHX0qiAC9pRFh3JZ4kgknG+NibxZn+b+sulkZNkDglkDOP8dweHze4uBzBLwKbK1XnCO37pRhe82JUxp0vnlMT+9lKHNXlpyvdrFl34l+SUscPI8Gb2krRG45BI4+FUSAnqNXeskznGQ8NtXiG7E9tps6HROIi2mnY3pPy2J79uzIPgggUEIgWZkKvO9Odx/uQvrzx5fTHz9++zAlPV02paf3wjbaTtvHAD5ZTbZnROCy3SznHswjeXSPBm95akWuKQWO3kUnQE/ZGx3l5fmknfsLtzrq5m6aGheFhYJzLZZTQ8fjs1B79rZFQYXS3v3ZDwF3AsbHoI4fBdkKvPW9FkrPJrdfaXudjxSsK1BXfrf3SrsFgUtazyO51TCPaIxOaRqz+v1Iuy32VfAWfS0Kq7AM9aGS+lRJ57V50nsvktM2HjmfEaA77VTP1YonFeOFxxYPLTK2bM+2CKT61s2tknEC2rrTmu0dH5+xzafh83yyVUCgoEJJr5Wmz2uYhNd0Cdv0JRDnScMm63jR8ZNq/lOgrvzi8bemHYm2UeASL5geyE911zlkbZLdgeJW76pz39o6bd0u9tXqmtzeMPaBs3lEfuorpclH7Z6S+v3p9eNTIdoujuEw59xutfEWwTc6GxfrsTj1rdLUt0/9+P3LJ/WrzmvzpPdepNDf2ld9rXy8tFHns711IUDfK9fzfuGk4rb5Hk/CbrGomCbHFN+2uVcyx59jWAcGa9oeJ8xwbGoC1cSriXU+2S7lMX2ubZ9SmIQ1AS9tz3sI9Cqg40rHS47269hT/jnyvpTn0v+W7tK2vJ9H4Midv5Q10tyh8adAW3OHxrnSljI0hmOa5o8wF23ZP+e2XpxztvFm3qE/1LdKW/t2nrf2VT8rH0/rhL1rMgL0ee/y+qZAyWDmZuXCBjo4ww/+ReCmgE6aunN+5ArnzUJubJBlvDq6gDYtrjRhqq2aQG+Q3PxY+WixFifgMLHf3IENECggcBpPfzMpNhwDKY6ra3VV/gqSrm2T8rOTld1zpXk1E9DcWHJeVFXmc4fGn95LkeL8obuyU7CeItMDechZNwoOZFHvruHcpblcfZK6EcpTecd1QurMt+a3c01GgL4VuuPtPZy0r/KHg/3q53yIQBDQZBgvNO08aYYs0vybYbzqGE1TuWO55FpczWsVJ2BHC6153XiNgBbe2RXCOUTHQfZyQgEKkqyCdNnpPB2KbeTfyprhYG7URV2NuZxy8dgJx1DpIK63u+jT+iD65+zgkLfK8BCo7zmfEaCHDuTf2wJx4V/6pH27mmyBwEUBnSAVmJe+az5VUBPH9DrZTw/HaFjwWCyu5mbRMpQ7f4/XCCCQViAGTBxnaVFT5JYwj7jWS5jflqwsA7epXpo7lEoG6T1dkFIfW68P1Nel+3jPn+0QoKvnSFcF4gnbw8L/ai2HIR6AN7bh434EFJBr7CooV/ISmMceyLDIVVtj3iX/E9pV6jhUubpSrgVASQLKRkDnHgsFjXmLcuZlqEyLY2zPgnZeT17vFFhY6+3MadNuGlMlArepkhrXRYP0cbyf6tLsz7A+UB+Xal/JPt7zZzsE6KVGSiXlxkV/oRP2JqJw4G/ano3NBTSWciQF3+fpzduPowLyIYxdXZ1WMm9wRwVqcaXHX+MEWLjdcQHA+aBwL1B8ywI5vtzy3GvPgvY8D37fJqD5edseSbYeFBjH8/ZQ9p84fxWaO7RGsbqwV0Q5uEbfIoU/FxrrEOry/I7NK/Xv1pII0LeKdbS9gh4FODU0OR50NVS00zrGk1MIluN4SvxTeZ8n18xhcsgyXuVaoOEKzrW4io+/Fih/qcjoG5yXPuM9BFoQ0HFXqh13w923UmVTbkaBcbC/ixvO0/F8na1Z2zJWXXSxedteabZu+W/R5ZpG6XguqkuJ8+fWCzB3x5tKDi0KKDhX0FNF28IJvop6UkkEgoAmh/Aj6b/F7nyEVig4Dz/c/SvnEpOwOwgq1KRAyflZF+NyH1sl29fkgLnRqCJzSFi76Tx9o2rmH2t8rw7SE9ZOY35rEJew+HxZhX7Ol/m+nE+n0+d9e+7f62F4eL9lbwL0LVodbKuTQ1XBeegTjyf4UC3+ReC1QKaJqtjjoJna8xpu3zu6eJA7kNhXM/ZC4LiA5uvjufjNofX2+ZW3qZnntZuCdD16byPxXMr5XfTnTyp9FdYIHvu5RP9uXacRoFc65nNUW1dQ9Xe7uoqXI/8seYaDP0u+ZIpAaoEwVnNNVEWO2YztSUl/KnClPGX9yQuBSwJb78hcymfP+zqudPErZ9pTL/bZKWD9eHuYP3bW1Gw3zdca32YFhoKM5/JQYt5/ZZi3hP25W9dta98SoO/v22b21FVq3TUfrE/QCQStD7AEVSaLTgVyjVVdWDMnDYurXO1J3ZYSV8pTt4H86hKIY86iygXnbLVRT6jkTCrDgrH3MsznkIrmD41v6yBda/ImxuRp+Oy9HZ77lgDd++jJXD+dmKu7az6ZhJP89JKfCLgWaGys1hKcT2NC9bWeiKey+YlATgHN4TnzJ28EUgvofJw6z5z56WmRnPmf593cY+7nDUz1e4J8rPt2S5UJ0LdoNbStJnX9r6hqvGs+dUNtJ/mp3vzsTCAE51nHqvVdtNCeGnvQ80Rcoyd1vi5gdkEoHP+az6/Xhk8RuCIQxtCVT9N+VOH8Yf0kx9ZHodN2UJrcdP7Luu5JU81Bfau6LmVX+j0C9NI9YFy+JvLaA/NIVuFJPtab//QlEMZpzklKx7M1aM725GyL54k4Z7vJuwOBEGDpz9SaeTS2gy7z0kTrMVPr/DGEudyyz6z7JXXbxtP4e+o8c+VX6OL9zeYQoN8kqn8DHeiavJsIzNUd4URZ7Ule9Sf1IdDiOA1tqrnzvE7ENZtS92UB67Gmu276c7USF+2WBXi3BoGHjf/rp0Ntqnj+sF5zmvbLoU5d3vluuPu2/Enf727p17tDVOzsVmAKyhWYa9LW5O22shsrZn2i3Fg9Nkdg0NX2Fsdp7W3iLvrAP60LjMO9LsYrUFdqvbm075jA1v/105HSap8/LB+FtuyXI316aV/NtZc+8/a+17q6DtC9daLX+igYV9JkrIBck/MUlLcUmEf/iq/Axvrzn+YF7k53H6wWIqaTeCPHnvWdzeYHPA1cFNCiz3JB/6oSIVDXd8xoPaC1wavPeQOBIGC1Rix6LIR2pvjXcu6w6pcULud51NjXHuvcc4B+PqZ2/a6JzzIpAJ8nTb4KxpU0Gdd8UN/sgBAgWAU+N+vCBgicCegEr+BcC/Ozj7L9anm8t/LImmX/ZOt4Mq5CwHJBfxUkBOtaK8T07uMnXdC/uj0fIpBYoKa/Sb7UdOaOSzIv36+xr63qvOWmCgH6y3G1/bcw8Skwfp2G+yHDZ1qQz9PQ0T+tBAgddVk3TVVw/seP3z5YTuDWi2zLtuUeOOqv3GWQPwI6ZtyNtbAu0QX9KVjXDQZ6qk8B6zmkBWXL45n+sRsxHuMLAnS7/k9bUm+5hbvnWuz01mza61tAk3p766cAABAASURBVLXumis4913Tg7ULx9/BHFzt7ubOpisVKpNDwOrOzK66h2BdNxIUrOvJPAXrBAW7JKvcacsXVh1tYCtPP1oez5b9c7R/2T+9AAF6etMmcvTUCAVBrZzcPblSl4MCIWhVYF7qwhGT98H+Y3cEDAQ0d2kOMyjqUBF6Mk/BOnfXDzGyc+MClndatzwO7Ynd0shTu1PXhQA9tSj5rRHYtI2CoE07sDECGQW02NZdcy28MxbjKuvWJtxSF1VcdSqVMROo8omN2d113WHX3XUlMzQKyi5gFgCGi9nZG2NUAHOHETTFDAToDALXAgqEtleQPRBILzAF5rpg1Nsk3WJ71Z/pRwk5IvBaIB4/tQcps4B9ehz+dUt5B4H2BZg72uvjeI521iwCdGcdQnVmAmFB4/GgGWZV5GXbAnEiDuPwzx9fTt4Cc6u7H9Gg7W6mdQhkF4hP3IRzSfaCDAqYHofnzroBNkV0KxCPswpbz7o9TacRoKdxJJfUAmEhExc0qfOtID+qWFZAAamSnt5QUM44LNsfuUq3/LKfXG0g37oE4rkkzG111fpGbWd31vUIvNKNPfjYiUCtAaATPqqBQFYBAvSsvGS+SyAsYOJCZtfO7HRDgI8XBKaAfArKFZhzFXgBircQQOCQQJzbwhx3KBOvO58F616rSb1sBVr7DhNbPUrrVYAAvdee99rusHCJCxiv9aNeNwR8f6xAXGkI40zBuNL88XWC8tf9x53m1ya8g8ARgTjHhXPQkTzc7xuC9ekRePd1pYIIbBBgTtyAxaa7BQjQd9OxY2oBBU5x4ZI6Y/LzIaAF6dG0Yn8F3edJQbiS7owraZwpGFfygbO9FjyeuN2MPRDwIqBzkC4UeqlPtnoQqGejJeP2BX5+9+v79ltJC5cECNCXVHjPXEDBuQIn84Ip0ERA/asFqUVS0H2e1jaS7foR4LHLfvraa0t1PtTFRK/1S1ovBervPn7ib9STqu7OzDLw03y8u6LsiECnAgTonXa8p2YreKvy/xPrCZG61CBAHR0JPAwP3Jlw1B+9VkXBi57u6eVu+vAYqPfa3z222/JiQI++tLlNAQL0Nvu1mlYpONedcy1Sqqk0FUXAgYCOnZfV4DcEEKhVQHfTewrUuZNedqSy5irrv7Z0+mmtVHvbEaC316fVtEgBhoLzaipMRRHoUODp/7feYdtpMgLWAt0E6txJtx5alIcAAhUJEKBX1FlNVfU0fCY4b6pHaQwChwTYGQEEngW6CNQJ0p87nFcIIIDATIAAfYbBSyOBEJxr8WFUGsUggAACCCBQpYDmyqdH38PcWWUjrlU6BOk/vf3l67VN+AwBTwI8VeapN9qtCwF6u33rs2VhgaEFh8/KUSsEEDgXaPV/55Z2kXWuxu8IpBXQvBnTjy+n+IVyYS5NW0K53HSOIUi39w8D6ZtFqXwhp4UyZbQmQIDeWo86bo/+dzJaYDiuIlVDoBqB8TT+blXZFr+FV0GBld/hcsgAgZmA5tGYGgrWdTzyxXGzTualWwGNVYvKWV1AsWgLZWwXIEDfbsYeGwV0klFwzrdRboRjcwQQQMBAgCLqFYiB+vcvn/QYvFLVd9fH4b7Fi4H1jq40NedppTSO5NKXAAF6X/1t39rTX18GR3BuT0+JbQvcDXffrFo4juO9VVkW5RAEWCg/lcELQ4F5wK4L47UF7K2dawy73m1RVnecLQAs5w7Lp+Qs7Chjm8Ddts3ZGoF1AtNdcy0W1u3BVggggICNAH8TaeNsUwqlXBLQhXHNwTH9+HKaAnbNz5f2Kf2+gjkedbfphdPp9NmmpGGwDGxztulheHifM3/yRmASIECfJPiZToC75uksyQmBCwJafF/4KPnbWjS3ssASDo9cSoG0SqChjXTOULD+x4/fPnh+HJ7js6FB11hTLMem5VNyjXVTE80hQG+iG300QlfldYVeCwAfNaIWCLQtoGOu7RbmaZ0uOOTJmVwR2CZQcmvN1TGFu+ueHoXX8dnSBcGSfXytbF2wufZ5ys9a+dMFjc2ULtfysuyfa/XgszICBOhl3Nsrlbvm7fUpLUJgJtDKAovHZ2edysvWBVa3Lwbqj1825yFYb+V8s7oDCm3IRd718JZzB/2yvl9a3ZIAvdWeNWqXTiLcNTfCphgEzgQsv0RGdw6auKs1Dk194d3ZkOBXBA4LvArWL+aY7wOdb/LlTs7WAurPJuYPIzjLud2oSRSzUYAAfSMYm/8lMAXm+ls2HsP5y4T/ImAtYP03arXf1bK8A2I9FigPgRwCMVifHoHPUcCVPH9+9ytfyHXFJ8VHloFgzfNHnDu4uJtiyJHHSgEC9JVQbPYocBo+68tlCMwfPfiBQEEB64tjtd8FsfyCn4LDgqIRSC5QIlDPHdAlR6owQ8uLvLXPH5bdq+PNsjzK8idAgO6vT3zW6DEw56Ths3uoVb8CeprFsvW1Lpp1B0QLREsrykKgNYG4BgjrgdbalaE9VWSpi7yWc0it88dgePfcsj+qGKSdVpIAvdOOX9NsnSTi35f/+HKKk/KandgGAQRMBU6G/y9bNUxBroJdva4qGS6wqnKhsghsFNB6QOuDjbtt3lznms07dbNDnQ2tsU+t5zvLPzuocxT1UWsC9D76eVMrNfEqMOcx9k1sbIxAPwIh2K3pC3+sF1j9DARaOhfQMWGR5mWWem19YbBUO3sod7EvMza8pvNxrGuY7zJyvMpaF8Bevckb3QkQoHfX5csNnoJy/r582Yd3EfAqYP2I4uRQy6OKJRZYkxE/+xLQMfEwPnx9yJzimC5Ma3Xe0QWPwk1tvnj1pWkjx+G+mn41Ds61FjftCwpzK0CA7rZr8lZMJwEl3SknKM9rTe4ItCigRxU9BArXbOMi0HiBda0+fNa2gNWjqXzZYdvjqETrtB60LFcXseL5OU+hSXL96e0vX5NktCETq3PIhiqxaSEBAvRC8JbF6sSrNJyGzwrIlfT4upL5lVPLhlMWAp0InIz/Dv2JNQS/noN0LQKf6soLBDILWH0jti6OZW7KquwJJlYxPW3kpd+eKjR7UWIO0RMnsyq4eql57XJ/5asqj7fns60tZwL02nrsRn0ViCspCFea7o4rGNeBr4Bc6UY2fIwAAhUJ6JjWcV+kyg6DdN2ZKXH3o4g/hXYpoDHeZcMrb7TXfisxhygAViDsrUtjncK8Zl6vcBMtlsl/EAgCBOgB4dC/OqAMk4Lu86QgfEoKxJV0slU61DZ2RgCBagRK3AF5wgmLmbioeXqj3AstgHXnXIu/crWg5B4FLOdcz3cfa+t7y37zbFNkDnE0d6hv4jwW6qTX1kk30SzKpIw6BAjQD/aTDijLpInkPB1sArsjgEADAjovFG1GWNTExU3BSkzBecEqUHTnAlZPsugCVOnjzeL/DV38vJZ4PHu+sCJrq/H7gjXMHR6eeIrHU6jLi7pZ/aIbfVZl5S2H3BMJEKAngiQbBBBAoLhA6Uk+LG7evP04xoWOMYYWeLpzblwsxSHwQsD0LmQ43nRR6kUFjH4pcYwbNS1rMbqwUqrP1jTMdPzOKiQXzR0lbFSm5g+LC06zJr94qRt9L97glwsC/bxNgN5PX9NSBBBoXMDqS6puMobAQQt4LXxubntwA5WhhZ0WeAezYncEqhPQHVkdA9YVb+2b5C3vHKvPrPtrbXnF7qI/VlAXWTV3PP6a9YeOG5WlMovOH6UvrGdVrixzR9UlQHfUGVQFAQQQOCJQenH1ou4hSNfCRwsgpRefHfxFCyvd8VBgrjIOZsfuCCQTsD4GFVjoGNAxkawRNzLS8axyb2x2/ONGAxfZ6dxl2WdbOqP4t/OHuUM+Gmdb6r12W7lr/tBxU/Ku+VRf7p5PEu3/3NJCAvQtWmyLAAIIOBfQl0S6qmJYbGkRlGLBNV9YaZHrqp1UBoFHgRIBjoKNXAHNY7Pij1iGjun4Wzv/KfFo99RnMtW5zYumAkbLJwoutjuMs2neOOqj/eU8BeZu5o9GL0Jd7FM+WC2wI0BfnTcbIoAAAgiUEPA66T8uuLRIUtKCSUmLJyVR6aeS3lfSdkpaqGlB62ZhpcqSEFgQUICz8Hb+t3R8vfv4KUdBOiZ1HOpiW478l/J08yc7S5VL9V7oM5nq3KZznJKctyadK1NVSfmUuGChchdTMHryCeNbbdV4VFraXu8rabvJUfvLeRzG90v7FHkvzNPFzhVFGkyhWwT8Behbas+2CCCAAAKvBDTpu7gD8qpmf72hRZKSFkxKWjwpaXGqn0p6X0nbKf21J/9FoA6BYsdfCGZ0HCk4SSE1BTo6Jq2PQ/25QIo2rMnDsqxb9ZHz1pT6OwGiRwggb9XV/PMwvjUvaDwqxbGuLyadJb2vpO0mR/N6rihQ8/SKzdikU4HuAvRO+5lmI4BAZwKu7oB0Zk9zESh+/IVAJgYvszuOa3tFQbmS7j5Ogc7afZNtVyA4LHZRJRla2owUQGKS1vQptwLj+6lsXlQhQICetpvIDQEEEHAhoDsgLK5cdAWV6FBAx9/gYREeAnXdSVSgHQP2cKdRgfelpG20rZLuPpbquhKPtxe/qFIK+0q5mFzB2ftROC/o4sfe3dmvDwEC9Kr6mcoigAAC6wX0hXEE6eu92BKBlAJahHs8/hR4X0op2783L5nFCxx7M2C/ZAKxH0JAmSzDzjPS2NZ5oXMGmr9CgAB9BVI3m9BQBBBoToA7IM11KQ2qSIDjb3tnlfgWfNVSwagCKL0mPQvEgJIg/RnkwCvOBwfwOtuVAL2zDi/ZXMpGAAF7AS06XTxqa990SkSguADH38YuCIFgDAg37pZqcwKoZUn1CRcvlm3Wvnt3uvsQzwdrd2C7rgUI0Lvu/qYaT2MQQOCCgBZXBOkvcVhsvvTgt3wCOv4Yb+t8ZbVuyzxbKYCir5Zt+ZOpZZdV74YLTxpbq7ZlIwSCAAF6QOBfBG4LsAUCdQto4cvC87EPw2KJO2WPFvwwESC4WcEcjssVW2XfhHPDZWKN48uf8smiQBjXmn8XP+NNBC4IEKBfgOFtBEwFKAwBAwEtrroP0lksGYw0ilgSIPBbUnl8z9FxqTud3Z8nH7tl6Yce1V56n/cWBByN64Xa8ZZjAQJ0x51D1RBIJUA+CEwCPQfpWnRzJ2MaCfy0FlDgR3CzrO7tuORiynI/6V2N4z9/fDnpfKrfScsCOta9jevlmvKuRwECdI+9Qp0QqEuA2lYm0GOQrsWk2l1ZV1HdxgQU3Gjh3lizDjXHowf9dLtL4/k03CG+vWVfW2iu0ZjWGOqr5bQ2pcDqAD1cLfu7kE4e0r9//9f/TIlAXggg4FmAuuUQ0OJKC4kceXvLU+1Ue73Vi/r0KaCFu9ZSGpd9Cjy32nMgo37iyzWf+2rpVbxDTJD+RKNjWnNNHDtP7/ICge0CqwP07VmzBwIIIFCBQMdV1EKi9QXotGDquJtpulMBHX8an06rl71anoPzqfEEoJPE5Z/0OqmgAAALzElEQVQYPdqECxU6ph9/4wcChwQI0A/xsTMCCCBwXcD7p00vrlgweR9+3dcvLujDOO0JQhclagjOpz5p+hw5NfLgTxnpqZDWL/guMU3jWQZLn/MeAnsECND3qLEPAggg4EMgSS20sNCCWQuNJBk6yETtUbscVIUqIHBVQONU47Wl4+9ig8PFCF2UqO0RYPVRj8HnxX688EF3TpWO5wvdx9uOBAjQHXUGVUEAAQRKCWjBrIXzy0VoqdrsL1dBjoIdtWd/LuyJgK2AxmsLx981NR2XMYC7tpHjz1R33SXWOcZxNYtXbXKqfS65BqkxUPt4vtY+PisvQIBevg+oAQIIIOBGQIuruLAKdwayVypxAVowKchRsJM4a7JDwERAx5+CwHgMmpSYvxAFM2pTK8elzjEt9U+uEaCxHJ0qnEsumWgsM89c0uH9lAIE6Ck1yQsBBBBoQEALK6W4uKqhPWEBuBQA1FB16ojAkoCOP43pao7BhUbMg5mFj6t+q4X+seiA6PT9y6c4jsN52qLMHGXMx3IrF5pyOJFnOgEC9HSW5IQAAgg0JRAXVz++hLXJ8Nljw0LFvuluhupZoH4UiUB2AY3t2gL16bjUnebWg5kX/VNxAJp7IEenEKgzlnNLk38rAgTorfQk7UAAAQQyCcTF1RSoe1iEhjpoodd2AJCpM8m2SgF3x+CZ4hSU93pcxv6ZB6DhHCWTMyZ+DQLRytN8Euo0/1f9Fi/8hjoyx8xleG0pQIBuqU1ZCCCAQMUCcWF1tgi1aI4WTErTokn1sCi36TJoXJUCGvsxheBhCEFgTIVaMh2TOi4JZJ47IfZPOE/KRBcs5BP76bG/5Dal5736ezU5yejJpwDD1BfqJ9VF/db6kx8FmClyowAB+kYwNkegFQFNQpqMLJLKasWNdvwlMF9caWGTcoE1XzApb40fpZSLJuXV0ti3aIvK+Kv3b//3yBZxbIUAVOXlTBoDR+pZet/oFALByWg6BnX8pK6b8lTS8aikMqdjsnbH1Fbn+cnnqa9Cf8ltSnJMkZTfebk1/f7kE457ja9cY1ljWEn5qxwl2Smpn2oy21pXtTHFWLuVx9Z6edn+VrtSfK4+WNteAvS1UmyHAAIIILAooIXNfIGliUwLHyUthOZJiyOl+Xt6rW2VtK8mMSXlq7RYKG/2LEDbFwSmY1DHjo4jJR1TOr4upaVjUdtqPyXloaQ8lXQ8Ki0Uz1sIJBHQ+Lo0ljUmNT6X0tJY1vZTmo9j5a9ylJJUmkwQSCxAgJ4YlOwQQAABBIZBCx8lLYTmSYt8pfl7eq1tlbBDoLxAOzXQMaXj61JaOha1rfZTakeCltQuoPGopPG5lJbGsrafUu3tp/59CRCg99XftBYBBBBAAAEESgpQNgIIIIAAAlcECNCv4PARAggggAACCCBQkwB1RQABBBCoW4AAve7+o/YIIIAAAggggICVAOUggAACCGQWIEDPDEz2CCCAAAIIIIAAAmsE2AYBBBBAgACdMYAAAggggAACCCDQvgAtRAABBCoQIECvoJOoIgIIIIAAAggggIBvAWqHAAIIpBAgQE+hSB4IIIAAAggggAACCOQTIGcEEOhEgAC9k46mmQgggAACCCCAAAIILAvwLgIIeBEgQPfSE9QDAQQQQAABBBBAAIEWBWgTAgisFiBAX03FhggggAACCCCAAAIIIOBNgPog0JIAAXpLvUlbEEAAAQQQQAABBBBAIKUAeSFgKkCAbspNYQgggAACCCCAAAIIIIDAJMBPBF4KEKC/9OA3BBBAAAEEEEAAAQQQQKANAVpRnQABenVdRoURQAABBBBAAAEEEEAAgfIC1CC9AAF6elNyRAABBBBAAAEEEEAAAQQQOCbQ5d4E6F12O41GAAEEEEAAAQQQQAABBHoW8Nl2AnSf/UKtEEAAAQQQQAABBBBAAAEEahXYWW8C9J1w7IYAAggggAACCCCAAAIIIIBASoG1AXrKMskLAQQQQAABBBBAAAEEEEAAAQTOBJwE6Ge14lcEEEAAAQQQQAABBBBAAAEEOhPoI0DvrFNpLgIIIIAAAggggAACCCCAQH0CBOgJ+owsEEAAAQQQQAABBBBAAAEEEDgqsDpA/1///I//HdLoIf3Dv/zT3x9teEX7U1UEEEAAAQQQQAABBBBAAIEOBFYH6B1YdNpEmo0AAggggAACCCCAAAIIIOBBgADdQy+0XAfahgACCCCAAAIIIIAAAgggsEqAAH0VExt5FaBeCCCAAAIIIIAAAggggEArAgTorfQk7cghQJ4IIIAAAggggAACCCCAgJkAAboZNQUhcC7A7wgggAACCCCAAAIIIIDAswAB+rMFrxBoS4DWIIAAAggggAACCCCAQFUCBOhVdReVRcCPADVBAAEEEEAAAQQQQACBtAIE6Gk9yQ0BBNIIkAsCCCCAAAIIIIAAAt0JEKB31+U0GAEEhgEDBBBAAAEEEEAAAQT8CRCg++sTaoQAArULUH8EEEAAAQQQQAABBHYIEKDvQGMXBBBAoKQAZSOAAAIIIIAAAgi0KUCA3ma/0ioEEEBgrwD7IYAAAggggAACCBQSIEAvBE+xCCCAQJ8CtBoBBBBAAAEEEEDgkgAB+iUZ3kcAAQQQqE+AGiOAAAIIIIAAAhULEKBX3HlUHQEEEEDAVoDSEEAAAQQQQACBnAIE6Dl1yRsBBBBAAIH1AmyJAAIIIIAAAp0LEKB3PgBoPgIIIIBALwK0EwEEEEAAAQS8CxCge+8h6ocAAggggEANAtQRAQQQQAABBA4LEKAfJiQDBBBAAAEEEMgtQP4IIIAAAgj0IECA3kMv00YEEEAAAQQQuCbAZwgggAACCLgQIEB30Q1UAgEEEEAAAQTaFaBlCCCAAAIIrBMgQF/nxFYIIIAAAggggIBPAWqFAAIIINCMAAF6M11JQxBAAAEEEEAAgfQC5IgAAgggYCdAgG5nTUkIIIAAAggggAACLwX4DQEEEEBgJkCAPsPgJQIIIIAAAggggEBLArQFAQQQqEuAAL2u/qK2CCCAAAIIIIAAAl4EqAcCCCCQWIAAPTEo2SGAAAIIIIAAAgggkEKAPBBAoD8BAvT++pwWI4AAAggggAACCCCAAAIIOBQgQHfYKVQJAQQQQAABBBBAAIG6Bag9AgjsESBA36PGPggggAACCCCAAAIIIFBOgJIRaFSAAL3RjqVZCCCAAAIIIIAAAgggsE+AvRAoJUCAXkqechFAAAEEEEAAAQQQQKBHAdqMwEUBAvSLNHyAAAIIIIAAAggggAACCNQmQH1rFiBAr7n3qDsCCCCAAAIIIIAAAgggYClAWVkFVgfo//F////fhXTykP79//y//8yqQuYIIIAAAggggAACCCCAAALmAr0XuDpA7x2K9iOAAAIIIIAAAggggAACCFQt4L7yBOjuu4gKIoAAAggggAACCCCAAAII+Bc4XkMC9OOG5IAAAggggAACCCCAAAIIIIDAYYGrAfrh3MkAAQQQQAABBBBAAAEEEEAAAQRWCZQM0FdVkI0QQAABBBBAAAEEEEAAAQQQ6EGg4QC9h+6jjQgggAACCCCAAAIIIIAAAq0IEKDv7Un2QwABBBBAAAEEEEAAAQQQQCChAAF6QsyUWZEXAggggAACCCCAAAIIIIBAXwIE6H3199RafiKAAAIIIIAAAggggAACCDgTIEB31iFtVIdWIIAAAggggAACCCCAAAIIbBUgQN8qxvblBagBAggggAACCCCAAAIIINCgAAF6g51Kk44JsDcCCCCAAAIIIIAAAgggUEKAAL2EOmX2LEDbEUAAAQQQQAABBBBAAIFFAQL0RRbeRKBWAeqNAAIIIIAAAggggAACtQoQoNfac9QbgRIClIkAAggggAACCCCAAALZBAjQs9GSMQIIbBVgewQQQAABBBBAAAEEehYgQO+592k7An0J0FoEEEAAAQQQQAABBFwLEKC77h4qhwAC9QhQUwQQQAABBBBAAAEEjgkQoB/zY28EEEDARoBSEEAAAQQQQAABBJoX+B8AAAD//zOH7aAAAAAGSURBVAMAHgq42kEp0W4AAAAASUVORK5CYII=" alt="Pallston" style="height: 26px; width: auto; display: block; filter: brightness(0) invert(1); opacity: 0.85;">
+        </div>
+      </div>
+      <!-- divider -->
+      <div style="border-top: 1px solid rgba(255,255,255,0.07);"></div>
+      <!-- bottom row -->
+      <div style="display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap;">
+        <div style="font-size: 13px; color: #4E6580;">An AI Operating Layer for Healthcare Administration · Platform Preview</div>
+        <div style="display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 600; letter-spacing: 0.05em; color: #4E6580;">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="#0FA18E" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"></rect><path d="M7 11V7a5 5 0 0 1 10 0v4"></path></svg>
+          CONFIDENTIAL · PALLSTON LLC · NOT FOR DISTRIBUTION
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:1280,&quot;height&quot;:900},&quot;showNav&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;},&quot;animateNetwork&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;}}">
+class Component extends DCLogic {
+  componentDidMount() {
+    if (typeof IntersectionObserver === 'undefined') return;
+    const root = document.querySelector('[data-reveal]') ? document : null;
+    const els = Array.from(document.querySelectorAll('[data-reveal]'));
+    const io = new IntersectionObserver((entries, obs) => {
+      entries.forEach((e) => {
+        if (e.isIntersecting) {
+          e.target.style.opacity = '1';
+          e.target.style.transform = 'translateY(0)';
+          obs.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+    els.forEach((el) => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(20px)';
+      el.style.transition = 'opacity .65s ease, transform .65s ease';
+      io.observe(el);
+    });
+  }
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,138 @@
+[
+  {
+    "slug": "exec-judgment-leadership",
+    "category": "Executive Perspectives",
+    "title": "Judgment, leadership, and the decisions that define an organization's next chapter.",
+    "excerpt": "Viewpoints from senior practitioners on the decisions leaders face when the stakes, and the scrutiny, are both high.",
+    "date": "June 2026",
+    "readingTime": "5 min read",
+    "body": [
+      "Most leadership advice is written for decisions that are reversible. Hire someone and it doesn't work out, you can correct course within a quarter. Launch a feature and it underperforms, you can iterate. The decisions that actually define an organization's next chapter are rarely like that. They commit resources that can't be easily redeployed, signal priorities that are hard to walk back, and take long enough to play out that the leader who made the call may have moved on before the result is fully known.",
+      "That asymmetry changes what good judgment actually looks like. For reversible decisions, speed is usually the dominant virtue: decide, observe, adjust. For consequential, slow-to-resolve decisions, the dominant virtue is closer to discipline: forcing the explicit articulation of what would have to be true for this to work, and then checking that against the organization's actual capacity to deliver it, not its aspirational capacity.",
+      "The leaders who handle this well share a specific habit: they separate the quality of a decision from the outcome of a decision, and they do it before the outcome is known, not after. A well-reasoned call that runs into bad luck and a poorly-reasoned call that happens to work out are not the same thing, even though only one of them will look better in the short term. Organizations that quietly reward the second kind of outcome over the first end up training their best people to stop showing their reasoning, which is the opposite of what you want when the next big decision arrives.",
+      "None of this is about being more cautious. Caution is itself a decision, and an increasingly risky one in environments that reward organizations for moving with conviction. It's about making sure conviction is built on something real: a clear view of what's actually known, what's being assumed, and who in the room is positioned to tell the difference. That's a harder discipline to maintain than it sounds, particularly as an organization grows and the distance between the decision-maker and the operational reality underneath the decision grows with it."
+    ],
+    "related": ["exec-defensible-decisions", "exec-cost-of-consensus", "ai-where-value"]
+  },
+  {
+    "slug": "exec-defensible-decisions",
+    "category": "Executive Perspectives",
+    "title": "What separates a defensible decision from a popular one.",
+    "excerpt": "Why the decisions that hold up under scrutiny are rarely the ones that felt easiest in the room.",
+    "date": "June 2026",
+    "readingTime": "4 min read",
+    "body": [
+      "Every executive team has had the experience of making a decision that felt unanimous in the room and then watching that unanimity evaporate the moment results came in. The decision wasn't wrong because it was unpopular afterward. It was fragile because it was never actually tested before it was popular.",
+      "A defensible decision and a popular one are built differently. A popular decision tends to optimize for the room: it addresses the loudest objection, aligns with what people already wanted to believe, and moves the meeting toward a close. A defensible decision optimizes for the version of this conversation that happens eighteen months later, after something has gone differently than expected, when someone reasonably asks why this path was chosen over the alternatives.",
+      "The practical difference shows up in how alternatives get treated. In a room optimizing for agreement, alternatives are raised briefly and dismissed quickly, often before anyone has had the chance to make the strongest possible case for them. In a room building something defensible, the strongest alternative gets argued as seriously as the preferred option, specifically so that the final choice is a comparison rather than a preference. That extra twenty minutes of discomfort is usually the entire difference between a decision that holds up and one that doesn't.",
+      "There's a leadership cost to doing this well: it's slower, and it occasionally surfaces disagreement that would have stayed quiet otherwise. But the alternative cost is larger and arrives later. Organizations that consistently choose popular over defensible build a track record that's hard to explain in hindsight, and a senior team that's gotten good at sounding confident rather than getting good at being right."
+    ],
+    "related": ["exec-judgment-leadership", "exec-cost-of-consensus", "acq-governance-that-works"]
+  },
+  {
+    "slug": "exec-cost-of-consensus",
+    "category": "Executive Perspectives",
+    "title": "The cost of consensus, and when it's worth paying.",
+    "excerpt": "Building agreement takes time. Sometimes that time is the right investment, and sometimes it isn't.",
+    "date": "May 2026",
+    "readingTime": "4 min read",
+    "body": [
+      "Consensus is treated, in most organizations, as an unambiguous good: more agreement is better than less, and time spent building it is time well spent. That's true often enough to become a habit, and like most habits, it stops getting questioned exactly when it should be.",
+      "Consensus is expensive in a specific way that's easy to underweight: it's expensive in time, and time has a cost that compounds the longer a decision sits open. A decision that takes six extra weeks to build full agreement around isn't free during those six weeks. Competitors move, conditions change, and the people waiting on the decision either stall or, worse, start making their own smaller decisions to fill the gap, which then have to be unwound later.",
+      "The decisions worth that cost share a common feature: durability matters as much as correctness. A decision that a large group of people had real input into and genuinely committed to will survive implementation pressure that a technically superior decision, imposed quickly, often won't. Reorganizations, major capital commitments, and anything that depends on sustained behavior change across a large group tend to fall into this category.",
+      "The decisions that don't deserve the same investment are the ones where speed itself is the primary source of advantage, or where the decision is reversible enough that a fast, slightly-wrong call beats a slow, fully-agreed one. Knowing which category a given decision falls into, before defaulting to the consensus-building process an organization always uses, is a judgment call in its own right, and one that's worth making deliberately instead of by habit."
+    ],
+    "related": ["exec-defensible-decisions", "exec-judgment-leadership", "acq-failures-visible-early"]
+  },
+  {
+    "slug": "ai-where-value",
+    "category": "AI & Modernization",
+    "title": "Where artificial intelligence actually creates value, and where it doesn't.",
+    "excerpt": "A grounded look at applying modern technology responsibly, without chasing every new capability.",
+    "date": "June 2026",
+    "readingTime": "6 min read",
+    "body": [
+      "Every organization we work with is asking some version of the same question right now: where should artificial intelligence actually fit into how we operate. The honest answer is narrower, and more useful, than most of what gets written about it.",
+      "AI creates real value in a specific, recognizable kind of moment: when a decision depends on finding a pattern across more information than a person can reasonably hold in their head at once, and when getting that pattern in front of the right person, faster, measurably improves the decision that follows. That's it. Forecasting demand across thousands of variables. Surfacing the handful of contracts in a portfolio that carry unusual risk. Flagging the operational anomaly that would otherwise surface three reports later. In each case, the technology isn't making the decision. It's making the decision easier to make well.",
+      "That distinction matters more than it sounds like it should. The organizations that get real value from AI treat it as an instrument that sharpens a person's judgment, the way a better diagnostic tool sharpens a physician's judgment without replacing it. The organizations that struggle tend to do the opposite: they treat the output of a model as the decision itself, skip the step where a person who understands the actual context checks it against reality, and discover the gap only after something has already gone wrong.",
+      "There's a second, quieter failure mode worth naming directly: adopting a capability because it exists, not because a specific decision in your organization is currently worse than it needs to be. Practical innovation starts from the second kind of question, not the first. What decision, right now, is being made with less information or less speed than it should be? That question almost always points to a narrower, more useful answer than 'where should we use AI.'",
+      "None of this is an argument against the technology. It's an argument for sequencing. Identify the decision. Confirm a person with real context will still be the one making it. Then, and only then, ask what kind of tool would make that decision faster or clearer. Done in that order, AI becomes what it should be: a better instrument in an experienced hand. Done in the other order, it becomes a separate initiative competing for attention against the work that actually matters."
+    ],
+    "related": ["ai-automation-not-strategy", "ai-model-limits", "exec-judgment-leadership"]
+  },
+  {
+    "slug": "ai-automation-not-strategy",
+    "category": "AI & Modernization",
+    "title": "Automation is not a strategy. It's a tool inside one.",
+    "excerpt": "Why the organizations that benefit most from automation treat it as an instrument, not an answer.",
+    "date": "May 2026",
+    "readingTime": "5 min read",
+    "body": [
+      "Automation has a way of becoming the goal instead of the means. A team sets out to reduce manual work in a process, succeeds, and the success itself becomes the story: we automated forty percent of this workflow. What gets lost is the question that should have come first, which is whether that workflow, automated or not, was actually the right one to be running.",
+      "This matters because automation is very good at making an existing process faster and very bad at telling you the process was wrong in the first place. If a reconciliation step exists because of a control gap that was patched over a decade ago and never revisited, automating that step makes the patch permanent and faster, not better. The work of automation should always start with the work of asking whether this step should exist at all, and that question gets skipped more often than it should, because it's slower and less satisfying than shipping a working automation.",
+      "The organizations that get this right treat automation as one tool inside a broader operating model decision, not as the decision itself. They ask what the process should look like if it were being designed today, with current technology and current volumes, and only then ask which parts of that redesigned process are worth automating. The sequence matters: automation applied to a process that's been rethought tends to compound, while automation applied to a legacy process tends to just lock in the legacy.",
+      "There's a real organizational temptation to skip this and just automate what already exists, because it's measurable and fast and doesn't require the harder conversation about why the process looks the way it does. That temptation is worth resisting. The value isn't in the automation. It's in the operating model the automation is serving, and that's the part that actually deserves the strategic attention."
+    ],
+    "related": ["ai-where-value", "ai-model-limits", "acq-governance-that-works"]
+  },
+  {
+    "slug": "ai-model-limits",
+    "category": "AI & Modernization",
+    "title": "What a model can't tell you about your own organization.",
+    "excerpt": "The limits of data-driven judgment, and why local context still has to come from people.",
+    "date": "April 2026",
+    "readingTime": "5 min read",
+    "body": [
+      "A model trained on an organization's historical data is, by construction, trained on the past. That's a useful capability and a real limitation at the same time, and the limitation tends to get less attention than it deserves, because it's less interesting to talk about than the capability.",
+      "The specific thing a model can't see is the reason behind an exception. It can flag that a particular contract, region, or account behaves differently from the pattern. It cannot tell you, on its own, whether that difference reflects a real anomaly worth correcting or a deliberate, well-reasoned adaptation that a person made for a reason that never made it into the data. Both look identical in the numbers. Only someone with institutional context can tell them apart, and that person increasingly has to be deliberately kept in the loop rather than assumed to still be there.",
+      "This is where a lot of well-intentioned modernization quietly goes wrong. As decisions get pushed toward dashboards and automated thresholds, the informal knowledge that used to get applied at the point of exception, often by someone who'd simply been doing the job long enough to recognize a pattern, gets squeezed out of the process, not through any single bad decision but through the cumulative effect of many reasonable-looking efficiency gains.",
+      "The fix isn't to distrust the model. It's to be explicit about which decisions still require someone with real context to sign off, and to design the process so that requirement survives the next round of efficiency improvements rather than getting quietly automated away because nobody defended it. That's a governance question as much as a technical one, and it's worth treating it that way from the start rather than discovering the gap after the context has already left the building."
+    ],
+    "related": ["ai-where-value", "ai-automation-not-strategy", "health-clinical-vs-operational"]
+  },
+  {
+    "slug": "acq-program-alignment",
+    "category": "Acquisition & Program Delivery",
+    "title": "Keeping multi-year programs aligned to the outcomes that mattered on day one.",
+    "excerpt": "Practical thinking on governance, acquisition strategy, and the discipline that execution requires.",
+    "date": "June 2026",
+    "readingTime": "5 min read",
+    "body": [
+      "A multi-year program rarely fails because the original plan was wrong. It usually fails because the program kept executing the original plan faithfully, long after the conditions that made that plan correct had quietly changed underneath it.",
+      "This happens for an understandable reason. Changing direction on a large, funded, multi-year initiative is organizationally expensive: it requires admitting the original assumptions need revisiting, it disrupts a delivery rhythm that took real effort to establish, and it's much easier to defer that conversation than to have it. So programs tend to keep moving in the direction they were pointed, measuring success against the original plan rather than against whether that plan still serves the outcome it was built to achieve.",
+      "The programs that avoid this build in a specific habit: a recurring, scheduled checkpoint whose only job is to ask whether the original outcome is still the right outcome, separate from the much more common checkpoint that asks whether the program is on schedule and on budget against its existing plan. Those are different questions, and a program can pass the second one for years while quietly failing the first.",
+      "Acquisition and contracting structures can either support this habit or actively work against it. A contract vehicle that locks in deliverables far in advance, with no real mechanism for revisiting them as conditions change, all but guarantees the program will optimize for compliance with the original scope rather than relevance to the current outcome. Building flexibility into governance and acquisition strategy from the start isn't a nice-to-have. It's usually the difference between a program that's still worth running in year three and one that's just still running."
+    ],
+    "related": ["acq-failures-visible-early", "acq-governance-that-works", "infra-resilience-by-design"]
+  },
+  {
+    "slug": "acq-failures-visible-early",
+    "category": "Acquisition & Program Delivery",
+    "title": "Why most program failures are visible a year before they happen.",
+    "excerpt": "The early warning signs that get noticed in hindsight, and how to catch them in real time.",
+    "date": "May 2026",
+    "readingTime": "4 min read",
+    "body": [
+      "Look back at almost any program post-mortem and a strange pattern shows up: the warning signs were there, often a year or more before the program actually ran into serious trouble, and someone usually did notice them at the time. What was missing wasn't visibility. It was a mechanism for that observation to actually change anything.",
+      "The most common early signal is a status report that stops changing in any meaningful way. When a milestone has been '85 percent complete' for three consecutive reporting cycles, that's not a status update, it's a sign that the actual work has stalled and the reporting process hasn't been designed to surface that. A second common signal is the quiet disappearance of a risk that was actively discussed early on and then stops being mentioned, not because it was resolved, but because raising it repeatedly became uncomfortable.",
+      "Catching these in real time requires treating program governance as something closer to an early-warning system than a compliance exercise. That means status reporting that's structured to make stagnation visible rather than easy to mask with rephrased language, and a governance culture where flagging a risk a second or third time is treated as diligence rather than as the messenger having a problem.",
+      "None of this requires more process. In most cases it requires less, applied more honestly: fewer metrics, tracked with enough consistency that a flatline actually means something, reviewed by people with enough authority and enough distance from the day-to-day delivery pressure to act on what they're seeing rather than explain it away."
+    ],
+    "related": ["acq-program-alignment", "acq-governance-that-works", "exec-cost-of-consensus"]
+  },
+  {
+    "slug": "acq-governance-that-works",
+    "category": "Acquisition & Program Delivery",
+    "title": "Governance that slows nothing down and catches everything.",
+    "excerpt": "Designing oversight that protects a program without becoming the reason it falls behind.",
+    "date": "April 2026",
+    "readingTime": "4 min read",
+    "body": [
+      "Governance gets a bad reputation in program delivery for a fair reason: a lot of it is designed primarily to produce a record that oversight occurred, not to actually change what the program does. That kind of governance adds time without adding protection, and people notice the tradeoff even when they can't always name it.",
+      "Governance that actually works starts from a different question. Instead of asking what needs to be reviewed, it asks what decision, if made badly, would be expensive or difficult to reverse later, and builds review specifically around those decisions rather than around a fixed calendar of checkpoints that apply the same scrutiny to everything regardless of stakes. A small configuration change and a major scope decision shouldn't go through the same process, and in too many programs, they do.",
+      "This kind of governance is faster in practice, not slower, because it stops spending review time on low-stakes decisions that didn't need it, freeing that time and attention for the handful of decisions that actually warranted scrutiny. The discipline isn't in adding more oversight. It's in being precise about where oversight is actually buying protection and removing it everywhere else.",
+      "The hardest part of building this kind of governance is usually political, not technical: it requires someone to say explicitly that a given review step isn't earning its cost, which can read as a criticism of whoever instituted it. That conversation is worth having directly rather than letting governance accumulate by default, because governance that accumulates without ever being pruned eventually becomes indistinguishable from the bureaucracy it was meant to prevent."
+    ],
+    "related": ["acq-program-alignment", "acq-failures-visible-early", "exec-defensible-decisions"]
+  }
+]

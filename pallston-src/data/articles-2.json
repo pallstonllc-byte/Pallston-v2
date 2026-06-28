@@ -1,0 +1,137 @@
+[
+  {
+    "slug": "infra-modernize-without-offline",
+    "category": "Infrastructure & Resilience",
+    "title": "Modernizing the systems the public depends on, without taking them offline.",
+    "excerpt": "Operational resilience and long-term performance for infrastructure that cannot afford to pause.",
+    "date": "June 2026",
+    "readingTime": "5 min read",
+    "body": [
+      "Most modernization frameworks assume, implicitly, that there's a point where the old system can be turned off and the new one turned on. For the systems that move power, water, freight, and emergency communications, that assumption doesn't hold. There is rarely a maintenance window long enough, or a tolerance for risk high enough, to make a clean cutover realistic.",
+      "That constraint changes the entire shape of a modernization program. Instead of a single migration event, the work becomes a long sequence of small, individually reversible changes, each one validated against the live system before the next one is allowed to proceed. It's slower than a green-field rebuild, and it has to be, because the cost of being wrong isn't a delayed launch. It's a real outage affecting people who have no alternative to fall back on.",
+      "The operators who do this well tend to share a specific discipline: they invest as much in the rollback plan for each increment as they do in the increment itself, and they treat the existence of a tested rollback path as a precondition for proceeding, not an afterthought to document once the change has already gone in. That discipline is expensive in the short term and is the entire reason these programs don't end up as cautionary tales.",
+      "There's also an organizational dimension that's easy to underweight: the people who understand exactly how the legacy system actually behaves, including the undocumented quirks that any system accumulates over decades, are often the same people whose roles are most directly affected by the modernization. Keeping that knowledge engaged through the transition, rather than treating it as something to be replaced as quickly as possible, is usually a bigger determinant of success than the technology choice itself."
+    ],
+    "related": ["infra-resilience-by-design", "infra-modernize-in-place", "acq-program-alignment"]
+  },
+  {
+    "slug": "infra-resilience-by-design",
+    "category": "Infrastructure & Resilience",
+    "title": "Resilience is a design decision, not a recovery plan.",
+    "excerpt": "Building systems that absorb disruption, rather than simply documenting how to recover from it.",
+    "date": "May 2026",
+    "readingTime": "4 min read",
+    "body": [
+      "Resilience and disaster recovery get treated as the same discipline more often than they should be. A recovery plan answers the question of what happens after something fails. Resilience asks a different, earlier question: how much disruption can this system absorb before it actually fails in the first place. Organizations that only invest in the first question tend to discover, at the worst possible time, that the second one was the more important one to have answered.",
+      "The practical difference shows up in where the investment goes. Recovery-focused planning spends its budget on backups, failover procedures, and documentation that gets reviewed twice a year. Resilience-focused design spends earlier, on architecture: reducing single points of failure, building in graceful degradation so a partial failure doesn't cascade into a complete one, and sizing capacity for the disruption that's plausible, not just the disruption that's typical.",
+      "This is a harder case to make internally, because resilience spending doesn't produce a visible result until the day it's tested by something real, and by then it's too late to have made the case. The organizations that get the investment right tend to reframe resilience not as insurance, which is easy to defer, but as a performance characteristic of the system, the same way latency or throughput would be treated, with its own targets and its own accountability.",
+      "None of this replaces the need for a recovery plan. It changes what that plan is for. A well-designed resilient system needs a recovery plan for the disruptions it genuinely couldn't absorb, which should be a much shorter list than the one most organizations are currently planning around."
+    ],
+    "related": ["infra-modernize-without-offline", "infra-modernize-in-place", "supply-distributed-visibility"]
+  },
+  {
+    "slug": "infra-modernize-in-place",
+    "category": "Infrastructure & Resilience",
+    "title": "Modernizing in place, without a single planned outage.",
+    "excerpt": "What it actually takes to upgrade a live system that the public depends on every day.",
+    "date": "April 2026",
+    "readingTime": "5 min read",
+    "body": [
+      "Telling a modernization team they cannot have a planned outage changes the nature of every decision they make, starting with the architecture of the rollout itself. It rules out the most familiar pattern in software delivery, the clean cutover, and forces a different approach: running old and new in parallel, routing a small and growing share of real traffic or load to the new system, and confirming equivalence at every step before the share increases further.",
+      "The technical version of this is well understood: shadow traffic, canary releases, feature flags that can be reversed in seconds rather than redeployed over hours. The harder version is operational. Someone has to be willing to run two systems at once for longer than feels comfortable, absorbing the cost of that duplication, because the alternative, moving faster than the validation supports, is the path that actually produces an outage.",
+      "The organizations that pull this off tend to treat the parallel-running period as the actual project, not as overhead standing between them and the real work. They build monitoring specifically designed to catch subtle behavioral differences between old and new, not just outright failures, because in a live-public-system context, a subtly wrong answer delivered reliably is often worse than an obvious failure that's immediately noticed and routed around.",
+      "It's slower than most stakeholders want it to be, and that's the wrong place to compress. The schedule risk of moving carefully is a delayed go-live. The schedule risk of moving quickly is an incident, with everything that follows from it, in a system the public has no alternative to and no patience for."
+    ],
+    "related": ["infra-modernize-without-offline", "infra-resilience-by-design", "health-regulatory-bottleneck"]
+  },
+  {
+    "slug": "health-margin-for-error",
+    "category": "Healthcare & Operations",
+    "title": "Operational and technology decisions where the margin for error is human.",
+    "excerpt": "Perspectives on navigating regulatory complexity and operational strain at the same time.",
+    "date": "June 2026",
+    "readingTime": "5 min read",
+    "body": [
+      "Most operational improvement work optimizes for an efficiency metric: shorter cycle times, lower cost per encounter, higher throughput per shift. In healthcare, every one of those metrics sits on top of a second, unstated constraint that doesn't show up in the dashboard: how much margin does this change leave for the moment something doesn't go as planned, because in this setting, that moment isn't hypothetical.",
+      "This is why operational changes that work cleanly in other industries can fail quietly in a clinical environment. A staffing model that's optimized tightly to average patient volume looks efficient until volume spikes, and the gap between average and peak is exactly where clinical risk concentrates. A workflow redesign that removes a manual verification step to save thirty seconds is a real efficiency gain on a spreadsheet and a real safety question on the floor.",
+      "The leaders who navigate this well don't reject efficiency. They insist on knowing, explicitly, what margin a given change is consuming, and they make that tradeoff a visible part of the decision rather than a side effect discovered later. That requires bringing clinical and operational perspectives into the same conversation early, rather than having operations design the change and clinical leadership react to it after the fact.",
+      "Technology has a role here, and it's a more modest one than it's often given credit for. The most valuable systems in this environment aren't the ones that automate the most. They're the ones that make the actual margin, the real-time gap between current capacity and current demand, visible to the people who have to make staffing and prioritization calls in the moment, so those calls can be made with real information instead of habit."
+    ],
+    "related": ["health-clinical-vs-operational", "health-regulatory-bottleneck", "ai-model-limits"]
+  },
+  {
+    "slug": "health-clinical-vs-operational",
+    "category": "Healthcare & Operations",
+    "title": "Where clinical and operational priorities actually conflict.",
+    "excerpt": "A closer look at the tradeoffs healthcare leaders navigate that rarely make it into a board deck.",
+    "date": "May 2026",
+    "readingTime": "4 min read",
+    "body": [
+      "It's common to talk about clinical and operational goals as fundamentally aligned, both ultimately serving patient outcomes, and at a high enough level of abstraction that's true. It's much less true at the level where actual decisions get made, where a specific scheduling policy, staffing ratio, or throughput target can genuinely serve one priority at the direct expense of the other.",
+      "A scheduling system optimized to maximize utilization of an expensive piece of equipment is doing its job from an operational standpoint. The same system, from a clinical standpoint, may be compressing the time available for the judgment calls that don't fit neatly into a scheduled slot. Neither perspective is wrong. They're optimizing for genuinely different things, and pretending the conflict doesn't exist doesn't resolve it, it just pushes the resolution down to whoever is on the floor when the tension actually surfaces.",
+      "The healthcare organizations that handle this well don't try to eliminate the tension. They make it an explicit, named tradeoff that gets decided deliberately, at the leadership level, rather than an implicit one that gets decided ad hoc by whoever is closest to the problem at two in the morning. That means clinical leadership needs real visibility into the operational targets being set, and operational leadership needs a genuine seat in conversations about clinical workflow, rather than each group optimizing in its own lane and discovering the conflict downstream.",
+      "This is ultimately a governance question disguised as an operational one. The fix isn't a better algorithm. It's a structure where both priorities are represented in the same room, early enough that the tradeoff gets made on purpose."
+    ],
+    "related": ["health-margin-for-error", "health-regulatory-bottleneck", "exec-defensible-decisions"]
+  },
+  {
+    "slug": "health-regulatory-bottleneck",
+    "category": "Healthcare & Operations",
+    "title": "Regulatory complexity is not the real bottleneck.",
+    "excerpt": "Why the slowest part of healthcare modernization is rarely the regulation itself.",
+    "date": "April 2026",
+    "readingTime": "4 min read",
+    "body": [
+      "Regulatory requirements get blamed for slow modernization more often than they actually deserve. In most of the programs we've seen stall, the regulation itself was clear and had been clear for some time. What was actually slow was the internal process for interpreting that requirement, getting agreement across legal, compliance, clinical, and operational stakeholders on what it meant in practice, and then translating that agreement into a system requirement someone could actually build against.",
+      "That internal translation process is where the real time goes, and it's largely invisible from the outside, which is why it gets misattributed to the regulation rather than to the organization's own process for interpreting it. Two organizations facing the identical regulatory requirement can move at completely different speeds, not because the rule was different, but because one of them had a faster, clearer internal path from 'what does this require' to 'what are we building.'",
+      "The organizations that move faster tend to invest specifically in that translation step: a small, empowered group with real authority to interpret a requirement and commit the organization to an interpretation, rather than a requirement that has to pass through every stakeholder sequentially before anyone is willing to commit to a reading of it. That group doesn't replace legal or compliance review. It gives that review something concrete and well-formed to react to, instead of an open question that invites everyone to weigh in from the start.",
+      "Worth saying plainly: this is a solvable organizational design problem, not an unavoidable cost of doing business in a regulated environment. The regulation sets a real constraint. It rarely sets the pace. The organization's own process for interpreting it does that."
+    ],
+    "related": ["health-clinical-vs-operational", "health-margin-for-error", "infra-modernize-in-place"]
+  },
+  {
+    "slug": "supply-distributed-visibility",
+    "category": "Supply Chain & Performance",
+    "title": "Resilience and visibility across increasingly distributed networks.",
+    "excerpt": "Operational performance thinking for organizations managing distributed supply chains.",
+    "date": "June 2026",
+    "readingTime": "5 min read",
+    "body": [
+      "Supply chains have gotten more distributed for good reasons: more suppliers reduces single-source risk, more regional fulfillment improves delivery times, and more flexible sourcing absorbs price volatility better than a concentrated network can. Each of those decisions is individually sound. The cumulative effect is a network with more points of failure and less centralized visibility than the simpler network it replaced, and that tradeoff doesn't always get evaluated as deliberately as the individual sourcing decisions did.",
+      "Visibility in a distributed network is a different problem than visibility in a concentrated one. It's not enough to track the status of a shipment. The organizations that manage this well track the health of the relationships and capacity behind each node, because the failure that actually disrupts a distributed network is rarely a single shipment going missing. It's a supplier's capacity quietly degrading over months until a demand spike reveals it has no slack left to absorb.",
+      "Building that kind of visibility requires data-sharing arrangements that go beyond the transactional relationship most organizations have with their suppliers, and that's as much a contracting and relationship question as it is a technology question. The technology to aggregate and monitor distributed supply data is largely mature. The harder problem is getting the network's participants to share the leading indicators, capacity utilization, lead time trends, financial health, that actually predict disruption before it happens, rather than only the lagging indicators that confirm disruption after it already has.",
+      "Organizations that solve this treat their key suppliers less like vendors being managed and more like partners whose operational health is directly relevant to their own, with the data-sharing and joint planning that follows from that framing. It's a different kind of relationship than most procurement functions are built to manage, and increasingly it's the relationship that determines whether a disruption is a minor adjustment or a real crisis."
+    ],
+    "related": ["supply-visibility-vs-control", "supply-distributed-judgment", "infra-resilience-by-design"]
+  },
+  {
+    "slug": "supply-visibility-vs-control",
+    "category": "Supply Chain & Performance",
+    "title": "Visibility is not the same as control.",
+    "excerpt": "Why seeing a disruption coming and being able to act on it are two different capabilities.",
+    "date": "May 2026",
+    "readingTime": "4 min read",
+    "body": [
+      "A lot of supply chain technology investment over the past several years has gone into visibility: dashboards, tracking, real-time status across a network. That investment has paid off in a narrow but important sense, organizations genuinely see more of what's happening than they used to. It has not, on its own, made organizations meaningfully better at responding to what they see, and that gap is becoming the more important problem to solve.",
+      "Seeing a disruption forming three weeks out is only valuable if the organization has a real mechanism for acting on that information in week one, rather than a process that still requires the same three weeks of internal coordination it always did before a decision gets made. Visibility without a fast decision path attached to it just means watching a problem develop in more detail.",
+      "Building real control alongside visibility means pre-deciding as much as possible before the disruption happens, rather than convening a response after it does. That means having alternative suppliers already qualified, not just identified, contractual flexibility already negotiated, not just theoretically available, and clear authority for someone to act on a forming disruption without waiting for a committee to reconvene. Each of those is a decision made calmly, in advance, when there's no pressure, which is exactly why they tend not to get made until pressure forces the conversation.",
+      "The organizations getting real value from their visibility investment are the ones that treat it as the first half of a capability, with the second half, the pre-built ability to act, getting equal investment. Visibility tells you something is happening. Control is what determines whether that information changes the outcome."
+    ],
+    "related": ["supply-distributed-visibility", "supply-distributed-judgment", "acq-failures-visible-early"]
+  },
+  {
+    "slug": "supply-distributed-judgment",
+    "category": "Supply Chain & Performance",
+    "title": "Distributed networks need distributed judgment.",
+    "excerpt": "Why resilience increasingly depends on decisions made close to the disruption, not far from it.",
+    "date": "April 2026",
+    "readingTime": "4 min read",
+    "body": [
+      "As supply networks have become more distributed, decision-making authority within many organizations has moved in the opposite direction, toward more centralized control, on the theory that a central team with full visibility can make better calls than someone closer to a single node. That theory holds up in calm conditions and tends to break down exactly when it matters most, during the early hours of a real disruption, when speed of response matters more than the marginal improvement in decision quality that central coordination provides.",
+      "The cost of centralization is latency, and latency is precisely what a fast-moving disruption punishes hardest. A regional team that can reroute a shipment or activate a backup supplier within hours, working from a pre-agreed playbook, will outperform a technically better decision that takes three days to work its way through central approval, by which point the window to act has often closed.",
+      "The organizations managing this well aren't abandoning central visibility, they're separating it from central decision authority. Central teams maintain the network-wide view and own the playbooks, thresholds, and pre-approved alternatives that regional teams operate within. Regional teams own the actual moment-to-moment decisions inside that framework, with authority to act first and report rather than ask first and wait.",
+      "This requires a level of trust that doesn't build itself. It comes from investing in the playbooks and pre-approved options well before they're needed, so that distributing the decision doesn't mean distributing the risk of an uninformed call. Done well, it's the difference between a network that absorbs a disruption regionally and one that has to escalate every disruption all the way to the center before anyone can move."
+    ],
+    "related": ["supply-visibility-vs-control", "supply-distributed-visibility", "infra-modernize-without-offline"]
+  }
+]
